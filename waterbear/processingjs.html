@@ -49,6 +49,8 @@
 				</li>
 			</ul>
 		</nav>
+            <button onclick="load();">Load</button>
+
 		<div class="menu_buttons">
 			<a href="#nav">Show menu</a>
 			<a href="#">Hide menu</a>
@@ -68,7 +70,7 @@
 			<button class="clear_canvas ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"><span class="ui-button-text">Clear</span></button>
 			<button class="runScripts ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"><span class="ui-button-text">Restart</span></button>
 		</div>
-		<div class="stage"><iframe class="stageframe" width="100%" height="100%" src="//waterbearlang.github.com/iframerunner/index2.html"></iframe></div>
+		<div class="stage"><iframe id = "preview_iframe" class="stageframe" width="100%" height="100%"></iframe></div>
 	</div>
 	<svg><text></text></svg>
     <script src="dist/processingjs.js"></script>

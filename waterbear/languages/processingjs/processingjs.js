@@ -5,6 +5,18 @@
  *
  */
 
+ var load = function (pjs_code) {
+   var previewFrame = document.getElementById('preview_iframe');
+   var preview = previewFrame.contentDocument || previewFrame.contentWindow.document;
+
+    var preamble = "<script src=\"http://processingjs.org/js/processing.min.js\"><\/script><canvas id=\"processing-canvas\"><\/canvas><script type=\"text/processing\" data-processing-target=\"processing-canvas\">";
+    var postamble = "<\/script>";
+ 
+ preview.open();
+    preview.write(preamble + pjs_code + postamble);
+ preview.close();
+ 
+};
 
 // Add some utilities
 wb.wrap = function(script){
@@ -43,6 +55,7 @@ function runCurrentScripts(event){
     var blocks = wb.findAll(document.body, '.workspace .scripts_workspace');
     document.body.className = 'result';
     wb.runScript( wb.prettyScript(blocks) );
+    load( wb.prettyScript(blocks) );
 }
 Event.on('.runScripts', 'click', null, runCurrentScripts);
 
@@ -76,7 +89,6 @@ function clearStage(event){
 }
 Event.on('.clear_canvas', 'click', null, clearStage);
 Event.on('.editScript', 'click', null, clearStage);
-
 
 
 wb.prettyScript = function(elements){
