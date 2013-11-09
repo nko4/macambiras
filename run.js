@@ -13,7 +13,7 @@ var watchr = require('watchr'),
 var app = {
   process: undefined,
   start: function() {
-    app.process = cp.fork('./app.js');
+    app.process = cp.fork('./server.js');
     console.log('RUN [✔] App started');
     app.process.on('close', function(code, signal) {
       console.log('RUN {!} Attempting to restart app...');
@@ -91,7 +91,7 @@ else {
   //listen to changes in app files
   watchr.watch({
     paths: [
-      'app.js',
+      'server.js',
       'layouts/',
       'models.js',
       'passport.js',
