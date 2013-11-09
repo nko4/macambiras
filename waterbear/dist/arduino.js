@@ -1925,16 +1925,6 @@ function edit_menu(title, specs, show){
 		document.body.className = 'result';
 	});
 
-// testing togetherjs
-TogetherJS.hub.on("eventoo", function (msg) {
-
-    if (! msg.sameUrl) {
-        return;
-    }
-    console.log("DEU!", msg);
-});
-
-
 // Load and Save Section
 
 function saveCurrentScripts(){
@@ -3335,14 +3325,6 @@ wb.menu({
 // Loads stored state from localStorage
 // Detects mode from URL for different embed views
 
-// testing togetherjs
-TogetherJS.hub.on("app.eventoo", function (msg) {
-    console.log("DEU!");
-    if (! msg.sameUrl) {
-        return;
-    }
-
-});
 
 
 switch(wb.view){
