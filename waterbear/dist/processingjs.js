@@ -2152,6 +2152,7 @@ ajax.submit=function(url,elm,frm){var e=$(elm);var f=function(r){e.innerHTML=r};
 
         if (selector){
             listener = function(event){
+                console.log('ocorreu evento', event);
 
                 blend(event); // normalize between touch and mouse events
                 // if (eventname === 'mousedown'){
@@ -2235,6 +2236,12 @@ ajax.submit=function(url,elm,frm){var e=$(elm);var f=function(r){e.innerHTML=r};
 
     // Treat mouse events and single-finger touch events similarly
     var blend = function(event){
+<<<<<<< HEAD
+      if (TogetherJS.running) {
+        TogetherJS.send({type: "eventoo", event: event});
+      }
+=======
+>>>>>>> 2b3c0e33be6ccaa9deebbc6d022ebb7fb9f612a5
       
         if (isPointerEvent(event)){
             if (isTouch){
@@ -4292,9 +4299,266 @@ wb.choiceLists.rettypes = wb.choiceLists.rettypes.concat(['color', 'image', 'sha
 
 /*end languages/processingjs/matrix.js*/
 
-/*begin languages/processingjs/pointTest.js*/
+/*begin languages/processingjs/processing.json*/
+wb.menu(        {
+    "name": "Processing",
+    "blocks": [
+        {
+            "blocktype": "eventhandler",
+            "id": "1cf8132a-4996-45db-b482-4e336200e3ca",
+            "script": "void setup(){[[1]]};",
+            "help": "Setup the Processing Canvas",
+            "sockets": [
+                {
+                    "name": "setup"
+                }
+            ]
+        },
+        {
+            "blocktype": "eventhandler",
+            "id": "1cf8132a-4996-45db-b482-4e336198e3ca",
+            "script": "void draw(){[[1]]};",
+            "help": "Main draw loop",
+            "sockets": [
+                {
+                    "name": "draw"
+                }
+            ]
+        },
+        {
+            "blocktype": "step",
+            "id": "71eb3271-6dc0-4a82-81cc-4c50d2ac19e7",
+            "script": "size({{1}}, {{2}});",
+            "help": "Set canvas size",
+            "sockets": [
+                {
+                    "name": "size X",
+                    "type": "number",
+                    "value": "200"
+                },
+                {
+                    "name": "Y",
+                    "type": "number",
+                    "value": "200"
+                }
+            ]
+        },
+        {
+            "blocktype": "step",
+            "id": "01123271-6dc0-4a82-81cc-4c50d8wcb9e7",
+            "script": "background({{1}});",
+            "help": "Set background color",
+            "sockets": [
+                {
+                    "name": "background color",
+                    "type": "color",
+                }
+            ]
+        },
+        {
+            "blocktype": "step",
+            "id": "01543271-6dc0-4a82-81cc-4c50d812b978",
+            "script": "fill({{1}});",
+            "help": "Set fill color",
+            "sockets": [
+                {
+                    "name": "fill color",
+                    "type": "color",
+                }
+            ]
+        },
+        {
+            "blocktype": "step",
+            "id": "01983271-6dc0-wa82-81cc-4c50d8ecb9e7",
+            "script": "stroke({{1}});",
+            "help": "Set stroke color",
+            "sockets": [
+                {
+                    "name": "stroke color",
+                    "type": "color",
+                }
+            ]
+        },
+        {
+            "blocktype": "step",
+            "id": "71eb3271-6dc0-4122-82cc-4c5077ac19e7",
+            "script": "frameRate({{1}});",
+            "help": "Set frame rate",
+            "sockets": [
+                {
+                    "name": "frame rate",
+                    "type": "number",
+                    "value": "60"
+                }
+            ]
+        },
+        {
+            "blocktype": "step",
+            "id": "71eb3271-6dc0-4a82-81cc-4c50d2ac19e7",
+            "script": "ellipse({{1}}, {{2}}, {{3}}, {{4}});",
+            "help": "Create ellipse",
+            "sockets": [
+                {
+                    "name": "ellipse X",
+                    "type": "number",
+                    "value": "200"
+                },
+                {
+                    "name": "Y",
+                    "type": "number",
+                    "value": "200"
+                },
+                {
+                    "name": "radius",
+                    "type": "number",
+                    "value": "200"
+                },
+                {
+                    "name": "radius",
+                    "type": "number",
+                    "value": "200"
+                }
 
-/*end languages/processingjs/pointTest.js*/
+            ]
+        },
+        {
+            "blocktype": "step",
+            "id": "06723171-6d20-4a32-814c-2c50d8wcb9e7",
+            "script": "noLoop();",
+            "help": "Stop looping",
+            "sockets": [
+                {
+                    "name": "noLoop##",
+                }
+            ]
+        },
+        {
+            "blocktype": "step",
+            "id": "71e73171-6dc0-4122-82cc-4c5074ac18e7",
+            "script": "line({{1}}, {{2}}, {{3}}, {{4}});",
+            "help": "Draws a line (a direct path between two points)",
+            "sockets": [
+                {
+                    "name": "line x1",
+                    "type": "number",
+                    "value": "30"
+                },
+                {
+                    "name": "y1",
+                    "type": "number",
+                    "value": "20"
+                },
+                {
+                    "name": "x2",
+                    "type": "number",
+                    "value": "85"
+                },
+                {
+                    "name": "y2",
+                    "type": "number",
+                    "value": "20"
+                }
+            ]
+        },
+        {
+            "blocktype": "step",
+            "id": "71eb32s1-6cc0-4322-82sc-4c5077ac19e7",
+            "script": "point({{1}}, {{2}});",
+            "help": "Draws a point, a coordinate in space at the dimension of one pixel",
+            "sockets": [
+                {
+                    "name": "point x",
+                    "type": "number",
+                    "value": "30"
+                },
+                {
+                    "name": "y",
+                    "type": "number",
+                    "value": "20"
+                }
+            ]
+        },
+        {
+            "blocktype": "step",
+            "id": "91e73171-6ec0-4122-82cc-4c5074ax10e7",
+            "script": "quad({{1}}, {{2}}, {{3}}, {{4}}, {{5}}, {{6}}, {{7}}, {{8}});",
+            "help": "A quad is a quadrilateral, a four sided polygon",
+            "sockets": [
+                {
+                    "name": "quad x1",
+                    "type": "number",
+                    "value": "38"
+                },
+                {
+                    "name": "y1",
+                    "type": "number",
+                    "value": "31"
+                },
+                {
+                    "name": "x2",
+                    "type": "number",
+                    "value": "86"
+                },
+                {
+                    "name": "y2",
+                    "type": "number",
+                    "value": "20"
+                },
+                {
+                    "name": "x3",
+                    "type": "number",
+                    "value": "69"
+                },
+                {
+                    "name": "y3",
+                    "type": "number",
+                    "value": "63"
+                },
+                {
+                    "name": "x4",
+                    "type": "number",
+                    "value": "30"
+                },
+                {
+                    "name": "y4",
+                    "type": "number",
+                    "value": "76"
+                }
+            ]
+        },
+        {
+            "blocktype": "step",
+            "id": "715e83281-6c20-4362-824c-4c5277ac19e7",
+            "script": "rect({{1}}, {{2}}, {{3}}, {{4}});",
+            "help": "Draws a rectangle",
+            "sockets": [
+                {
+                    "name": "rect x",
+                    "type": "number",
+                    "value": "30"
+                },
+                {
+                    "name": "y",
+                    "type": "number",
+                    "value": "20"
+                },
+                {
+                    "name": "width",
+                    "type": "number",
+                    "value": "20"
+                },
+                {
+                    "name": "height",
+                    "type": "number",
+                    "value": "20"
+                }
+            ]
+        },
+    ]
+}
+
+);
+/*end languages/processingjs/processing.json*/
 
 /*begin languages/processingjs/control.json*/
 wb.menu({
@@ -8264,61 +8528,6 @@ wb.menu({
 }
 );
 /*end languages/processingjs/matrix.json*/
-
-/*begin languages/processingjs/pointTest.json*/
-wb.menu(        {
-    "name": "PointsTest",
-    "blocks": [
-        {
-            "blocktype": "eventhandler",
-            "id": "1cf8132a-4996-45db-b482-4e336200e3ca",
-            "script": "void setup(){[[1]]};",
-            "help": "this trigger will run its scripts once when the program starts",
-            "sockets": [
-                {
-                    "name": "setup"
-                }
-            ]
-        },
-        {
-            "blocktype": "step",
-            "id": "71eb3271-6dc0-4a82-81cc-4c50d8acb9e7",
-            "script": "size({{1}}, {{2}});",
-            "type": "point",
-            "help": "create a new point",
-            "sockets": [
-                {
-                    "name": "size X",
-                    "type": "number",
-                    "value": "200"
-                },
-                {
-                    "name": "Y",
-                    "type": "number",
-                    "value": "200"
-                }
-            ]
-        },
-        {
-            "blocktype": "step",
-            "id": "01123271-6dc0-4a82-81cc-4c50d8wcb9e7",
-            "script": "background({{1}});",
-            "type": "point",
-            "help": "create a new point",
-            "sockets": [
-                {
-                    "name": "background Grey Scale",
-                    "type": "number",
-                    "value": "200"
-                }
-            ]
-        },
-
-    ]
-}
-
-);
-/*end languages/processingjs/pointTest.json*/
 
 /*begin launch.js*/
 // Minimal script to run on load
