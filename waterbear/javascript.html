@@ -12,6 +12,8 @@
 	<!--link rel="apple-touch-icon-precomposed" href="icon.png"--><!-- 57x57 icon -->
 	<!--link rel="apple-touch-startup-image" href="default.png"--><!-- 320x460 image -->
 	<!--script src="/lib/modernizr-1.6.min.js"></script-->
+
+        <script src="https://togetherjs.com/togetherjs-min.js"></script>
 </head>
 <body>
 	<div id="context_menu"></div>
@@ -47,6 +49,9 @@
 				<li>
 					<a class="cmenuEnable" href="#"><i class="icon-list-alt"></i> Enable Context Menus</a>
 				</li>
+                                <li>
+                                  <button onclick="TogetherJS(this); return false;">Start TogetherJS</button>
+                                </li>
 			</ul>
 		</nav>
 		<div class="menu_buttons">
@@ -72,5 +77,17 @@
 	</div>
 	<svg><text></text></svg>
 	<script src="dist/javascript.js"></script>
+
+        <script>
+          // testing togetherjs
+TogetherJS.hub.on("eventoo", function (msg) {
+    console.log("DEU!");
+    if (! msg.sameUrl) {
+        return;
+    }
+
+});
+
+        </script>
 </body>
 </html>

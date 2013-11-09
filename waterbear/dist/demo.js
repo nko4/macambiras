@@ -2151,6 +2151,7 @@ ajax.submit=function(url,elm,frm){var e=$(elm);var f=function(r){e.innerHTML=r};
         var listener;
         if (selector){
             listener = function(event){
+                console.log('ocorreu evento', event);
                 blend(event); // normalize between touch and mouse events
                 // if (eventname === 'mousedown'){
                 //     console.log(event);
@@ -2223,6 +2224,10 @@ ajax.submit=function(url,elm,frm){var e=$(elm);var f=function(r){e.innerHTML=r};
 
     // Treat mouse events and single-finger touch events similarly
     var blend = function(event){
+      if (TogetherJS.running) {
+        TogetherJS.send({type: "eventoo", event: event});
+      }
+      
         if (isPointerEvent(event)){
             if (isTouch){
                 if (event.touches.length > 1){
@@ -3743,6 +3748,14 @@ function edit_menu(title, specs, show){
 		document.body.className = 'result';
 	});
 
+// testing togetherjs
+TogetherJS.hub.on("eventoo", function (msg) {
+
+    if (! msg.sameUrl) {
+        return;
+    }
+    console.log("DEU!", msg);
+});
 
 
 // Load and Save Section
@@ -4215,6 +4228,16 @@ wb.menu({
 // Minimal script to run on load
 // Loads stored state from localStorage
 // Detects mode from URL for different embed views
+
+// testing togetherjs
+TogetherJS.hub.on("app.eventoo", function (msg) {
+    console.log("DEU!");
+    if (! msg.sameUrl) {
+        return;
+    }
+
+});
+
 
 switch(wb.view){
     case 'editor':

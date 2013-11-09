@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <title>foo</title>
+  </head>
+
+  <body>
+
+    <script src="https://togetherjs.com/togetherjs-min.js"></script>
+
+    <button onclick="TogetherJS(this); return false;">Start TogetherJS</button>
+
+    <button onclick="send();">Send</button>
+
+    <script>
+      // receive:
+      TogetherJS.hub.on("evento", function (msg) {
+        console.log("received!", msg);
+        if (! msg.sameUrl) {
+          return;
+        }
+      });
+
+      // send:
+      var send = function () {
+        console.log("sent!");
+        if (TogetherJS.running) {
+          TogetherJS.send({type: "evento", event: "foo"});
+        }
+      };
+    </script>
+  </body>
+
+</html>
