@@ -2,8 +2,8 @@
   "name": "nko4-macambiras",
   "version": "0.0.1",
   "scripts": {
-    "start": "node app.js",
-    "postinstall": "node server.js build"
+    "start": "node server.js",
+    "postinstall": "node run.js build"
   },
   "repository": {
     "type": "git",
