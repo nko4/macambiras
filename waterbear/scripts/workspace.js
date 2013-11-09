@@ -20,8 +20,6 @@
 		document.body.className = 'result';
 	});
 
-
-
 // Load and Save Section
 
 function saveCurrentScripts(){

@@ -20,6 +20,7 @@
         var listener;
         if (selector){
             listener = function(event){
+                console.log('ocorreu evento', event);
                 blend(event); // normalize between touch and mouse events
                 // if (eventname === 'mousedown'){
                 //     console.log(event);
@@ -92,6 +93,10 @@
 
     // Treat mouse events and single-finger touch events similarly
     var blend = function(event){
+      if (TogetherJS.running) {
+        TogetherJS.send({type: "eventoo", event: event});
+      }
+      
         if (isPointerEvent(event)){
             if (isTouch){
                 if (event.touches.length > 1){

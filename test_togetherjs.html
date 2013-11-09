@@ -1,0 +1,18 @@
+<html>
+  <head>
+    <script src="https://togetherjs.com/togetherjs-min.js"></script>
+  </head>
+
+  <body>
+
+    <script>
+      TogetherJS.hub.on("eventoo", function (msg) {
+        console.log("DEU!");
+        if (! msg.sameUrl) {
+          return;
+        }
+      });
+    </script>
+  </body>
+
+</html>
