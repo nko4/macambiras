@@ -1,5 +1,8 @@
 'use strict';
 
+// https://github.com/nko4/website/blob/master/module/README.md#nodejs-knockout-deploy-check-ins
+require('nko')('3c9TnAPnLtMg5zjy');
+
 //dependencies
 var config = require('./config'),
     express = require('express'),
@@ -101,4 +104,12 @@ require('./utilities')(app);
 //listen up
 app.server.listen(app.get('port'), function(){
   //and... we're live
+    // if run as root, downgrade to the owner of this file
+  if (process.getuid() === 0) {
+    require('fs').stat(__filename, function(err, stats) {
+      if (err) { return console.error(err); }
+      process.setuid(stats.uid);
+    });
+  }
+  console.log('running!');
 });

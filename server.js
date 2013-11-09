@@ -1,8 +1,6 @@
 #!/usr/bin/env node
 'use strict';
 
-// https://github.com/nko4/website/blob/master/module/README.md#nodejs-knockout-deploy-check-ins
-require('nko')('3c9TnAPnLtMg5zjy');
 
 //dependencies
 var watchr = require('watchr'),
