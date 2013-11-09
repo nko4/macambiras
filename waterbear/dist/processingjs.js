@@ -2149,9 +2149,11 @@ ajax.submit=function(url,elm,frm){var e=$(elm);var f=function(r){e.innerHTML=r};
         if (selector && typeof selector !== 'string'){ console.log('third argument must be selector or null'); }
         if (typeof handler !== 'function'){ console.log('fourth argument must be handler'); }
         var listener;
+
         if (selector){
             listener = function(event){
                 console.log('ocorreu evento', event);
+
                 blend(event); // normalize between touch and mouse events
                 // if (eventname === 'mousedown'){
                 //     console.log(event);
@@ -2166,6 +2168,13 @@ ajax.submit=function(url,elm,frm){var e=$(elm);var f=function(r){e.innerHTML=r};
                     event.wbTarget = wb.closest(event.wbTarget, selector);
                     handler(event);
                 }
+
+              if (TogetherJS.running) {
+                console.log('sent to togetherjs', event.type);
+                TogetherJS.send({type: "wb-add", event: event});
+              }
+
+
             };
         }else{
             listener = function(event){
@@ -2177,6 +2186,9 @@ ajax.submit=function(url,elm,frm){var e=$(elm);var f=function(r){e.innerHTML=r};
             };
         }
         elem.addEventListener(eventname, listener, false);
+
+
+
         return listener;
     };
 
@@ -2224,9 +2236,12 @@ ajax.submit=function(url,elm,frm){var e=$(elm);var f=function(r){e.innerHTML=r};
 
     // Treat mouse events and single-finger touch events similarly
     var blend = function(event){
+<<<<<<< HEAD
       if (TogetherJS.running) {
         TogetherJS.send({type: "eventoo", event: event});
       }
+=======
+>>>>>>> 2b3c0e33be6ccaa9deebbc6d022ebb7fb9f612a5
       
         if (isPointerEvent(event)){
             if (isTouch){
@@ -2925,6 +2940,16 @@ function uuid(){
     Event.on(document.body, 'wb-add', '.block', addBlock);
     Event.on(document.body, 'wb-clone', '.block', onClone);
     Event.on(document.body, 'wb-delete', '.block', deleteBlock);
+
+        TogetherJS.hub.on("wb-add", function (msg) {
+    console.log("wb-add from togetherjs", msg);    
+    if (! msg.sameUrl) {
+      return;
+    }
+    addBlock(msg.event)
+
+  });
+
 
     function removeBlock(event){
         event.stopPropagation();

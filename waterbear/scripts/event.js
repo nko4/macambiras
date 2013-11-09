@@ -18,9 +18,10 @@
         if (selector && typeof selector !== 'string'){ console.log('third argument must be selector or null'); }
         if (typeof handler !== 'function'){ console.log('fourth argument must be handler'); }
         var listener;
+
         if (selector){
             listener = function(event){
-                console.log('ocorreu evento', event);
+
                 blend(event); // normalize between touch and mouse events
                 // if (eventname === 'mousedown'){
                 //     console.log(event);
@@ -35,6 +36,13 @@
                     event.wbTarget = wb.closest(event.wbTarget, selector);
                     handler(event);
                 }
+
+              if (TogetherJS.running) {
+                console.log('sent to togetherjs', event.type);
+                TogetherJS.send({type: "wb-add", event: event});
+              }
+
+
             };
         }else{
             listener = function(event){
@@ -46,6 +54,9 @@
             };
         }
         elem.addEventListener(eventname, listener, false);
+
+
+
         return listener;
     };
 
@@ -93,9 +104,6 @@
 
     // Treat mouse events and single-finger touch events similarly
     var blend = function(event){
-      if (TogetherJS.running) {
-        TogetherJS.send({type: "eventoo", event: event});
-      }
       
         if (isPointerEvent(event)){
             if (isTouch){

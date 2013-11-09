@@ -160,6 +160,16 @@
     Event.on(document.body, 'wb-clone', '.block', onClone);
     Event.on(document.body, 'wb-delete', '.block', deleteBlock);
 
+        TogetherJS.hub.on("wb-add", function (msg) {
+    console.log("wb-add from togetherjs", msg);    
+    if (! msg.sameUrl) {
+      return;
+    }
+    addBlock(msg.event)
+
+  });
+
+
     function removeBlock(event){
         event.stopPropagation();
         if (wb.matches(event.wbTarget, '.expression')){
