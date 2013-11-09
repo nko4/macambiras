@@ -5,13 +5,26 @@
 
   <body>
 
+    <button onclick="TogetherJS(this); return false;">Start TogetherJS</button>
+
+    <button onclick="send();">Send</button>
+
     <script>
-      TogetherJS.hub.on("eventoo", function (msg) {
-        console.log("DEU!");
+      // receive:
+      TogetherJS.hub.on("evento", function (msg) {
+        console.log("received!", msg);
         if (! msg.sameUrl) {
           return;
         }
       });
+
+      // send:
+      var send = function () {
+        console.log("sent!");
+        if (TogetherJS.running) {
+          TogetherJS.send({type: "evento", event: event});
+        }
+      };
     </script>
   </body>
 
