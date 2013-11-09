@@ -1,0 +1,22 @@
+<body>
+<button onclick="load('void setup() { size(100, 100); background(100); stroke(255); ellipse(random(width), random(height), 25, 25);}');">Load</button>
+<iframe id="preview_iframe" frameborder="1"></iframe>
+
+<script>
+
+ var load = function (pjs_code) {
+   var previewFrame = document.getElementById('preview_iframe');
+   var preview = previewFrame.contentDocument || previewFrame.contentWindow.document;
+      
+    var preamble = "<script src=\"http://processingjs.org/js/processing.min.js\"><\/script><canvas id=\"processing-canvas\"><\/canvas><script type=\"text/processing\" data-processing-target=\"processing-canvas\">";
+    var postamble = "<\/script>";
+ 
+ preview.open();
+    preview.write(preamble + pjs_code + postamble);
+ preview.close();
+
+ 
+};
+
+</script>
+    </body>
