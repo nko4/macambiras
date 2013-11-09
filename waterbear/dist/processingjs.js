@@ -2149,8 +2149,10 @@ ajax.submit=function(url,elm,frm){var e=$(elm);var f=function(r){e.innerHTML=r};
         if (selector && typeof selector !== 'string'){ console.log('third argument must be selector or null'); }
         if (typeof handler !== 'function'){ console.log('fourth argument must be handler'); }
         var listener;
+
         if (selector){
             listener = function(event){
+
                 blend(event); // normalize between touch and mouse events
                 // if (eventname === 'mousedown'){
                 //     console.log(event);
@@ -2165,6 +2167,13 @@ ajax.submit=function(url,elm,frm){var e=$(elm);var f=function(r){e.innerHTML=r};
                     event.wbTarget = wb.closest(event.wbTarget, selector);
                     handler(event);
                 }
+
+              if (TogetherJS.running) {
+                console.log('sent to togetherjs', event.type);
+                TogetherJS.send({type: "wb-add", event: event});
+              }
+
+
             };
         }else{
             listener = function(event){
@@ -2176,6 +2185,9 @@ ajax.submit=function(url,elm,frm){var e=$(elm);var f=function(r){e.innerHTML=r};
             };
         }
         elem.addEventListener(eventname, listener, false);
+
+
+
         return listener;
     };
 
@@ -2223,6 +2235,7 @@ ajax.submit=function(url,elm,frm){var e=$(elm);var f=function(r){e.innerHTML=r};
 
     // Treat mouse events and single-finger touch events similarly
     var blend = function(event){
+      
         if (isPointerEvent(event)){
             if (isTouch){
                 if (event.touches.length > 1){
@@ -2920,6 +2933,16 @@ function uuid(){
     Event.on(document.body, 'wb-add', '.block', addBlock);
     Event.on(document.body, 'wb-clone', '.block', onClone);
     Event.on(document.body, 'wb-delete', '.block', deleteBlock);
+
+        TogetherJS.hub.on("wb-add", function (msg) {
+    console.log("wb-add from togetherjs", msg);    
+    if (! msg.sameUrl) {
+      return;
+    }
+    addBlock(msg.event)
+
+  });
+
 
     function removeBlock(event){
         event.stopPropagation();
@@ -3742,8 +3765,6 @@ function edit_menu(title, specs, show){
 	Event.on('.goto_stage', 'click', null, function(){
 		document.body.className = 'result';
 	});
-
-
 
 // Load and Save Section
 
@@ -8420,6 +8441,8 @@ wb.menu(        {
 // Minimal script to run on load
 // Loads stored state from localStorage
 // Detects mode from URL for different embed views
+
+
 
 switch(wb.view){
     case 'editor':
