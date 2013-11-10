@@ -2,12 +2,18 @@
 
 .jumbotron {
   background-color: transparent;
-  background: url("/media/blocos.png") fixed;
+  background: url("/media/blocos.png") no-repeat center;
+  background-size: cover;
   text-align: center;
   padding: 30px 60px;
-  
+  margin-top: 20px;
+
   h1 {
     font-weight: bold;
+    color: #fff;
+    font-size: 50px;
+    padding-top: 50px;
+    padding-bottom: 50px
   }
   
   @media (max-width: @screen-tablet) {
@@ -26,7 +32,7 @@
   margin-top: 0;
 }
 
-#vote-nko {
+.nko {
   padding-top: 15px;
   padding-bottom: 15px;
 }

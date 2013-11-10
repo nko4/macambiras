@@ -11,7 +11,6 @@ html
       div.container
         div.navbar-header
           a.navbar-brand(href='/')
-            img.navbar-logo(src='/media/logo-symbol-64x64.png')
             span.navbar-brand-label #{projectName}
           button.navbar-toggle.collapsed(data-toggle='collapse', data-target='.my-navbar-collapse')
             span.icon-bar
@@ -19,14 +18,10 @@ html
             span.icon-bar
         div.navbar-collapse.my-navbar-collapse.collapse
           ul.nav.navbar-nav
-            li: a(href='/') You
-            li: a(href='/editor') Editor
+            li: a(href='/sketch/hello_world') Sketch editor
             li: a(href='/about/') About
           ul.nav.navbar-nav.navbar-right
-            li: a(href='/login/')
-              i.icon-user
-              |  Sign In
-            li: iframe(id='vote-nko' src='http://nodeknockout.com/iframe/macambiras' frameborder='0' scrolling='no' allowtransparency='true' width='115' height='25')
+            li: iframe(class='nko' src='http://nodeknockout.com/iframe/macambiras' frameborder='0' scrolling='no' allowtransparency='true' width='115' height='25')
     
     div.page
       div.container

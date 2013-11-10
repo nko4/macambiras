@@ -17,11 +17,13 @@ block body
       h1.title #{projectName}
       ul#menu
         li
-          a(id='clear_scripts' href='#' onclick='var workspace = document.querySelector(".workspace > .scripts_workspace");workspace.parentElement.removeChild(workspace);wb.createWorkspace("Workspace");document.querySelector(".workspace > .scripts_text_view").innerHTML = "";') New
+          a(id='clear_scripts' href='#' onclick='var workspace = document.querySelector(".workspace > .scripts_workspace");workspace.parentElement.removeChild(workspace);wb.createWorkspace("");document.querySelector(".workspace > .scripts_text_view").innerHTML = "";') New
         li
           a(id='save_script' href='#' onclick='saveCurrentScriptsToGist();') Save to gist
         li
           a(id='load_from_gist' href='#' onclick='loadScriptsFromGistId();') Load from gist
+        li
+          iframe(class='nko' src='http://nodeknockout.com/iframe/macambiras' frameborder='0' scrolling='no' allowtransparency='true' width='115' height='25')
     div#block_menu
     div(class='workspace blockview')
       div.tabbar
