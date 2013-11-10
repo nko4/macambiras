@@ -19,15 +19,14 @@ html
             span.icon-bar
         div.navbar-collapse.my-navbar-collapse.collapse
           ul.nav.navbar-nav
-            li: a(href='/') Home
+            li: a(href='/') You
+            li: a(href='/editor') Editor
             li: a(href='/about/') About
-            li: a(href='/signup/') Sign Up
-            li: a(href='/contact/') Contact
           ul.nav.navbar-nav.navbar-right
             li: a(href='/login/')
               i.icon-user
               |  Sign In
-            li: iframe(src='http://nodeknockout.com/iframe/macambiras' frameborder='0' scrolling='no' allowtransparency='true' width='115' height='25')
+            li: iframe(id='vote-nko' src='http://nodeknockout.com/iframe/macambiras' frameborder='0' scrolling='no' allowtransparency='true' width='115' height='25')
     
     div.page
       div.container

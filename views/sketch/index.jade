@@ -1,0 +1,12 @@
+extends ../../layouts/default
+
+block head
+  title Editor
+
+block feet
+  script(src='/views/login/index.min.js?#{cacheBreaker}')
+
+block body
+  b Foo !{sketch.id}
+
+
