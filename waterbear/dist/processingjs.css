@@ -929,114 +929,53 @@ body.result nav, body.blocks nav {
 
 /*end languages/processingjs/processingjs.css*/
 
-/*begin languages/processingjs/asset.css*/
-
-/*end languages/processingjs/asset.css*/
-
-/*begin languages/processingjs/control.css*/
-.controls, .controls .holder{
-    border-color: hsl(44, 81%, 49%);
-    background-color: hsl(44, 81%, 85%);
-}
-
-
-/*end languages/processingjs/control.css*/
-
-/*begin languages/processingjs/sprite.css*/
-.sprites, .sprites .holder{
+/*begin languages/processingjs/structure.css*/
+.structure, .structure .holder{
     border-color: hsl(120, 81%, 49%);
     background-color: hsl(120, 81%, 85%);
 }
 
-.movingsprite, .movingsprite .holder{
+.movingstructure, .movingstructure .holder{
     border-color: hsl(150, 81%, 49%);
     background-color: hsl(150, 81%, 85%);
 }
-/*end languages/processingjs/sprite.css*/
+/*end languages/processingjs/structure.css*/
 
-/*begin languages/processingjs/voice.css*/
-.voices, .voices .holder{
-    border-color: hsl(120, 81%, 49%);
-    background-color: hsl(120, 81%, 85%);
-}
-
-.music, .music .holder{
-    border-color: hsl(150, 81%, 49%);
-    background-color: hsl(150, 81%, 85%);
-}
-/*end languages/processingjs/voice.css*/
-
-/*begin languages/processingjs/array.css*/
-.arrays, .arrays .holder{
-    border-color: hsl(195, 65%, 79%);
-    background-color: hsl(195, 62%, 89%);
-}
-
-/*end languages/processingjs/array.css*/
-
-/*begin languages/processingjs/boolean.css*/
-.boolean, .boolean .holder{
-    background-color: #FF4444;
-    border-color: red;
+/*begin languages/processingjs/environment.css*/
+.environment, .environment .holder{
+    border-color: hsl(250, 65%, 79%);
+    background-color: hsl(250, 62%, 89%);
 }
 
 
-/*end languages/processingjs/boolean.css*/
+/*end languages/processingjs/environment.css*/
 
-/*begin languages/processingjs/canvas.css*/
-/* block and border colours for different groups of blocks */
-
-
-.canvas, .canvas .holder{
-    border-color: #e66a22;
-    background-color: #e66a22;
-}
-
-.gradient, .gradient .holder{
-    border-color: hsl(225,65%,83%);
-    background-color: hsl(225, 65%, 93%);
-}
-
-.pattern, .pattern .holder{
+/*begin languages/processingjs/shapes.css*/
+.shape, .shape .holder{
     border-color: hsl(25, 100%, 63%);
     background-color: hsl(25, 100%, 83%);
 }
 
+/*end languages/processingjs/shapes.css*/
 
-
-/*end languages/processingjs/canvas.css*/
-
-/*begin languages/processingjs/color.css*/
-.color, .color .holder{
-    border-color: #e77a33;
-    background-color: #e77a33;
+/*begin languages/processingjs/colors.css*/
+.colors, .colors .holder{
+    border-color: hsl(200,98%,56%);
+    background-color: hsl(200,98%,76%);
 }
 
-/*end languages/processingjs/color.css*/
+/*end languages/processingjs/colors.css*/
 
-/*begin languages/processingjs/image.css*/
-.images, .images .holder{
+/*begin languages/processingjs/input.css*/
+.input, .input .holder{
     background-color: hsl(296, 65%, 77%);
     border-color: hsl(296, 65%, 57%);
 }
 
-/*end languages/processingjs/image.css*/
+/*end languages/processingjs/input.css*/
 
-/*begin languages/processingjs/math.css*/
-.math, .math .holder{
-    border-color: hsl(264,62%,79%);
-    background-color: hsl(264,62%,89%);
-}
-
-.number, .number .holder{
-    border-color: blue;
-}
-
-
-/*end languages/processingjs/math.css*/
-
-/*begin languages/processingjs/object.css*/
-.objects, .objects .holder{
+/*begin languages/processingjs/controls.css*/
+.control, .control .holder{
     border-color: hsl(75, 90%, 66%);
     background-color: hsl(75, 90%, 76%);
 }
@@ -1045,80 +984,12 @@ body.result nav, body.blocks nav {
     border-color: gray;
 }
 
-/*end languages/processingjs/object.css*/
+/*end languages/processingjs/controls.css*/
 
-/*begin languages/processingjs/string.css*/
-.strings, .strings .holder{
-    border-color: hsl(240, 65%, 83%);
-    background-color: hsl(240, 65%, 93%);
+/*begin languages/processingjs/math.css*/
+.math, .math .holder{
+    border-color: hsl(195, 65%, 79%);
+    background-color: hsl(195, 62%, 89%);
 }
 
-/*end languages/processingjs/string.css*/
-
-/*begin languages/processingjs/path.css*/
-.paths, .paths .holder{
-    border-color: hsl(156, 90%, 66%);
-    background-color: hsl(156, 85%, 70%);
-}
-
-/*end languages/processingjs/path.css*/
-
-/*begin languages/processingjs/point.css*/
-.points, .points .holder{
-    border-color: hsl(90, 65%, 79%);
-    background-color: hsl(90, 62%, 89%);
-}
-
-
-/*end languages/processingjs/point.css*/
-
-/*begin languages/processingjs/rect.css*/
-.rects, .rects .holder{
-    border-color: hsl(150, 65%, 79%);
-    background-color: hsl(150, 62%, 89%);
-}
-
-
-/*end languages/processingjs/rect.css*/
-
-/*begin languages/processingjs/sensing.css*/
-.sensing, .sensing .holder{
-    border-color: hsl(200,98%,56%);
-    background-color: hsl(200,98%,76%);
-}
-
-/*end languages/processingjs/sensing.css*/
-
-/*begin languages/processingjs/shape.css*/
-.shapes, .shapes .holder{
-    border-color: hsl(25, 100%, 63%);
-    background-color: hsl(25, 100%, 83%);
-}
-
-/*end languages/processingjs/shape.css*/
-
-/*begin languages/processingjs/size.css*/
-.sizes, .sizes .holder{
-    border-color: hsl(15,100%,63%);
-    background-color: hsl(15,100%,83%);
-}
-
-
-/*end languages/processingjs/size.css*/
-
-/*begin languages/processingjs/text.css*/
-.text, .text .holder{
-    border-color: hsl(93,90%,66%);
-    background-color: hsl(93,90%,76%);
-}
-
-
-/*end languages/processingjs/text.css*/
-
-/*begin languages/processingjs/matrix.css*/
-.matrix, .matrix .holder{
-    border-color: hsl(2264,65%,83%);
-    background-color: hsl(264, 65%, 93%);
-}
-
-/*end languages/processingjs/matrix.css*/
+/*end languages/processingjs/math.css*/

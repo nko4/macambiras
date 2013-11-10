@@ -1,0 +1,18 @@
+{
+    "name": "Environment",
+    "blocks": [
+        {
+            "blocktype": "step",
+            "id": "01123271-6746-66u2-m18c-8ci0d8cc9e7",
+            "script": "background({{1}});",
+            "help": "Set background color",
+            "sockets": [
+                {
+                    "name": "background color",
+                    "type": "color",
+                }
+            ]
+        },
+    ]
+}
+
