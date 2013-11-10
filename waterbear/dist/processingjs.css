@@ -929,18 +929,22 @@ body.result nav, body.blocks nav {
 
 /*end languages/processingjs/processingjs.css*/
 
-/*begin languages/processingjs/asset.css*/
+/*begin languages/processingjs/math.css*/
+.math, .math .holder{
+    border-color: hsl(264,62%,79%);
+    background-color: hsl(264,62%,89%);
+}
 
-/*end languages/processingjs/asset.css*/
-
-/*begin languages/processingjs/control.css*/
-.controls, .controls .holder{
-    border-color: hsl(44, 81%, 49%);
-    background-color: hsl(44, 81%, 85%);
+.number, .number .holder{
+    border-color: blue;
 }
 
 
-/*end languages/processingjs/control.css*/
+/*end languages/processingjs/math.css*/
+
+/*begin languages/processingjs/asset.css*/
+
+/*end languages/processingjs/asset.css*/
 
 /*begin languages/processingjs/sprite.css*/
 .sprites, .sprites .holder{
@@ -1021,19 +1025,6 @@ body.result nav, body.blocks nav {
 }
 
 /*end languages/processingjs/image.css*/
-
-/*begin languages/processingjs/math.css*/
-.math, .math .holder{
-    border-color: hsl(264,62%,79%);
-    background-color: hsl(264,62%,89%);
-}
-
-.number, .number .holder{
-    border-color: blue;
-}
-
-
-/*end languages/processingjs/math.css*/
 
 /*begin languages/processingjs/object.css*/
 .objects, .objects .holder{

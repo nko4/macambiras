@@ -11,7 +11,7 @@ var plugins = {
     javascript: ['javascript', 'asset', 'control', 'sprite', 'voice', 'array', 'boolean', 'canvas', 'color',  'image', 'math', 'object', 'string', 'path', 'point', 'rect', 'sensing', 'shape', 'size', /*'social',*/ /*'fb'*/, 'text', 'matrix' /*'demo'*/],
     minecraftjs: ['minecraftjs', 'control', 'game', 'player', 'position', 'blocks',  'camera', 'array', 'boolean', 'math', 'string'],
     demo: ['javascript', 'demo'],
-    processingjs: ['processingjs', 'processing', 'shapes', 'colors', 'input', 'controls',  'asset', 'control', 'sprite', 'voice', 'array', 'boolean', 'canvas', 'color',  'image', 'math', 'object', 'string', 'path', 'point', 'rect', 'sensing', 'shape', 'size', 'text', 'matrix']
+    processingjs: ['processingjs', 'processing', 'shapes', 'colors', 'input', 'controls', 'math', 'asset', 'sprite', 'voice', 'array', 'boolean', 'canvas', 'color',  'image', 'object', 'string', 'path', 'point', 'rect', 'sensing', 'shape', 'size', 'text', 'matrix']
 };
 
 var styles = {

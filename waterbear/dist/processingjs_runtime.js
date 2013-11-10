@@ -338,6 +338,10 @@ console.log('runtime ready');
 
 /*end languages/processingjs/processingjs_runtime.js*/
 
+/*begin languages/processingjs/math_runtime.js*/
+
+/*end languages/processingjs/math_runtime.js*/
+
 /*begin languages/processingjs/asset_runtime.js*/
 (function(){
 
@@ -399,10 +403,6 @@ Global.prototype.preloadImage = preloadImage; // called by script block to set u
 
 })();
 /*end languages/processingjs/asset_runtime.js*/
-
-/*begin languages/processingjs/control_runtime.js*/
-
-/*end languages/processingjs/control_runtime.js*/
 
 /*begin languages/processingjs/sprite_runtime.js*/
 // Sprite Routines
@@ -1358,10 +1358,6 @@ Voice.prototype.toggle = function(boolean){
 /*begin languages/processingjs/image_runtime.js*/
 
 /*end languages/processingjs/image_runtime.js*/
-
-/*begin languages/processingjs/math_runtime.js*/
-
-/*end languages/processingjs/math_runtime.js*/
 
 /*begin languages/processingjs/object_runtime.js*/
 

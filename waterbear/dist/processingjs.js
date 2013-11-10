@@ -4174,13 +4174,13 @@ wb.choiceLists.mode = ['RGB', 'HSB'];
 
 /*end languages/processingjs/colors.js*/
 
+/*begin languages/processingjs/math.js*/
+
+/*end languages/processingjs/math.js*/
+
 /*begin languages/processingjs/asset.js*/
 
 /*end languages/processingjs/asset.js*/
-
-/*begin languages/processingjs/control.js*/
-
-/*end languages/processingjs/control.js*/
 
 /*begin languages/processingjs/sprite.js*/
 /*
@@ -4253,10 +4253,6 @@ wb.choiceLists.rettypes = wb.choiceLists.rettypes.concat(['color', 'image', 'sha
 /*begin languages/processingjs/image.js*/
 
 /*end languages/processingjs/image.js*/
-
-/*begin languages/processingjs/math.js*/
-
-/*end languages/processingjs/math.js*/
 
 /*begin languages/processingjs/object.js*/
 
@@ -4931,6 +4927,56 @@ wb.menu({
     "name": "Control",
     "blocks": [
         {
+            "blocktype": "step",
+            "id": "079b2b89-41c2-4d00-8n21-rcf62146980",
+            "script": "int variable## = {{1}};",
+            "locals": [
+                {
+                    "blocktype": "expression",
+                    "script": "variable##",
+                    "type": "number",
+                    "sockets": [
+                        {
+                            "name": "variable##"
+                        }
+                    ]
+                }
+            ],
+            "help": "Create a integer variable reference to re-use",
+            "sockets": [
+                {
+                    "name": "int variable value",
+                    "type": "number",
+                    "value": 0
+                }
+            ]
+        },
+        {
+            "blocktype": "step",
+            "id": "079b2b89-41c2-4d00-8e21-bcd62f4bm80",
+            "script": "char variable## = {{1}};",
+            "locals": [
+                {
+                    "blocktype": "expression",
+                    "script": "variable##",
+                    "type": "string",
+                    "sockets": [
+                        {
+                            "name": "variable##"
+                        }
+                    ]
+                }
+            ],
+            "help": "Create a char variable reference to re-use",
+            "sockets": [
+                {
+                    "name": "char variable value",
+                    "type": "string",
+                    "value": "string"
+                }
+            ]
+        },
+        {
             "blocktype": "expression",
             "id": "e3a5ea20-3ca9-42cf-ac02-77ff06836a7e",
             "type": "boolean",
@@ -5043,125 +5089,77 @@ wb.menu({
                 }
             ]
         },
-    ]
-}
-
-);
-/*end languages/processingjs/controls.json*/
-
-/*begin languages/processingjs/control.json*/
-wb.menu({
-    "name": "Controls",
-    "blocks": [
         {
-            "blocktype": "eventhandler",
-            "id": "1cf8132a-4996-47db-b482-4e336200e3ca",
-            "script": "function _start(){[[1]]}_start();",
-            "help": "this trigger will run its scripts once when the program starts",
+            "blocktype": "context",
+            "id": "20ba3e08-74c0-42de-b6f2-938443e63ce0",
+            "script": "if({{1}}){[[2]]}",
+            "help": "Allows the program to make a decision about which code to execute",
             "sockets": [
                 {
-                    "name": "when program runs"
-                }
-            ]
-        },
-        {
-            "blocktype": "eventhandler",
-            "id": "f4a604cd-f0b5-4133-9f91-4e1abe48fb6a",
-            "script": "document.addEventListener('keydown', function(event){ if (global.keyForEvent(event) === {{1}}){[[1]];}});",
-            "help": "this trigger will run the attached blocks every time this key is pressed",
-            "sockets": [
-                {
-                    "name": "when",
-                    "type": "choice",
-                    "options": "keys",
-                    "value": "choice"
-                },
-                {
-                    "name": "key pressed"
-                }
-            ]
-        },
-        {
-            "blocktype": "eventhandler",
-            "id": "cfea9087-3d7c-46ad-aa41-579bba2f4709",
-            "locals": [
-                {
-                    "blocktype": "expression",
-                    "sockets": [
-                        {
-                            "name": "count##"
-                        }
-                    ],
-                    "script": "local.count##",
-                    "type": "number"
-                }
-            ],
-            "script": "(function(){local.count##=0;setInterval(function(){local.count##++;[[1]]},1000/{{1}})})();",
-            "help": "this trigger will run the attached blocks periodically",
-            "sockets": [
-                {
-                    "name": "repeat",
-                    "type": "number",
-                    "value": "30"
-                },
-                {
-                    "name": "times a second"
-                }
-            ]
-        },
-        {
-            "blocktype": "eventhandler",
-            "id": "47AA31E2-5A90-4AF1-8F98-5FDD437561B6",
-            "locals": [
-                {
-                    "blocktype": "expression",
-                    "sockets": [
-                        {
-                            "name": "count##"
-                        }
-                    ],
-                    "script": "local.count##",
-                    "type": "number"
-                }
-            ],
-            "script": "(function(){local.count##=0;local.timerid##=setInterval(function(){local.count##++;if({{2}}){clearInterval(local.timerid##);return;}[[1]]},1000/{{1}});})();",
-            "help": "this trigger will run the attached blocks periodically",
-            "sockets": [
-                {
-                    "name": "repeat",
-                    "type": "number",
-                    "value": "30"
-                },
-                {
-                    "name": "times a second until",
-                    "type": "boolean",
-                    "value": "true"
-                }
-            ]
-        },
-        {
-            "blocktype": "step",
-            "id": "079b2b89-41c2-4d00-8e21-bcb86574bf80",
-            "script": "local.variable## = {{1}};",
-            "locals": [
-                {
-                    "blocktype": "expression",
-                    "script": "local.variable##",
+                    "name": "if",
                     "type": "any",
-                    "sockets": [
-                        {
-                            "name": "variable##"
-                        }
-                    ]
-                }
-            ],
-            "help": "create a reference to re-use the any",
+                    "value": null
+                },
+            ]
+        },
+        {
+            "blocktype": "context",
+            "id": "l0k23e48-74cp-420e-b6m2-n3794d6lce0",
+            "script": "else {[[2]]}",
+            "help": "It specifies a block of code to execute when the expression in if() is false",
             "sockets": [
                 {
-                    "name": "variable variable##",
+                    "name": "else",
+                },
+            ]
+        },
+        {
+            "blocktype": "context",
+            "id": "l0k23e48-74n0-42ge-b61h-c3e456x3ce0",
+            "script": "else if({{1}}){[[2]]}",
+            "help": "It specifies a block of code to execute when the expression in if() is false",
+            "sockets": [
+                {
+                    "name": "else if",
+                    "type": "any",
+                    "value": null
+                },
+            ]
+        },
+        {
+            "blocktype": "context",
+            "id": "1cf8132a-4996-45db-b482-4e3shre13c1",
+            "script": "for( {{1}}; {{2}}; {{3}}) { [[4]] }",
+            "help": "Controls a sequence of repetitions",
+            "sockets": [
+                {
+                    "name": "for init",
+                    "type": "any",
+                    "value": null
+                },
+                {
+                    "name": "test",
+                    "type": "any",
+                    "value": null
+                },
+                {
+                    "name": "update",
                     "type": "any",
                     "value": null
                 }
+            ]
+        },
+        {
+            "blocktype": "context",
+            "id": "1cf8132a-49y6-455b-b432-3e1sh2e13c1",
+            "script": "while( {{1}} ) { [[2]] }",
+            "help": "Controls a sequence of repetitions",
+            "sockets": [
+                {
+                    "name": "while ",
+                    "type": "any",
+                    "value": null
+                },
             ]
         },
         {
@@ -5200,181 +5198,406 @@ wb.menu({
                 }
             ]
         },
+    ]
+}
+
+);
+/*end languages/processingjs/controls.json*/
+
+/*begin languages/processingjs/math.json*/
+wb.menu({
+    "name": "Math",
+    "blocks": [
         {
-            "blocktype": "context",
-            "id": "66b33236-c9ce-4b6c-9b69-e8c4fdadbf52",
-            "script": "setTimeout(function(){[[1]]},1000*{{1}});",
-            "help": "pause before running the following blocks",
+            "blocktype": "expression",
+            "id": "406d4e12-7dbd-4f94-9b0e-e2a66d960b3c",
+            "type": "number",
+            "script": "({{1}} + {{2}})",
+            "help": "Adds two values",
             "sockets": [
                 {
-                    "name": "schedule in",
+                    "name": "addition",
                     "type": "number",
-                    "value": "1"
+                    "value": 0
                 },
                 {
-                    "name": "secs"
+                    "name": "+",
+                    "type": "number",
+                    "value": 0
                 }
             ]
         },
         {
-            "blocktype": "context",
-            "id": "aa146082-9a9c-4ae7-a409-a89e84dc113a",
-            "script": "range({{1}}).forEach(function(idx, item){local.count## = idx;[[1]]});",
-            "help": "repeat the contained blocks so many times",
-            "locals": [
-                {
-                    "blocktype": "expression",
-                    "sockets": [
-                        {
-                            "name": "count##"
-                        }
-                    ],
-                    "script": "local.count##",
-                    "type": "number"
-                }
-            ],
+            "blocktype": "step",
+            "id": "406d4e12-7dhd-4fg4-9bpe-0a69d968b3c",
+            "type": "number",
+            "script": "{{1}} += {{2}};",
+            "help": "Combines addition with assignment. First argument must be a variable",
             "sockets": [
                 {
-                    "name": "repeat",
+                    "name": "add assign",
+                    "type": "any",
+                    "value": null
+                },
+                {
+                    "name": "+=",
+                    "type": "any",
+                    "value": 1
+                }
+            ]
+        },
+        {
+            "blocktype": "expression",
+            "id": "406d4e12-7db0-4fn4-9bne-9b86bd94be3c",
+            "type": "string",
+            "script": "({{1}} + {{2}})",
+            "help": "Concatenates string values",
+            "sockets": [
+                {
+                    "name": "concatena",
+                    "type": "string",
+                    "value": null
+                },
+                {
+                    "name": "+",
+                    "type": "string",
+                    "value": null
+                }
+            ]
+        },
+        {
+            "blocktype": "expression",
+            "id": "d7082309-9f02-4cf9-bcd5-d0cac243bff9",
+            "type": "number",
+            "script": "({{1}} - {{2}})",
+            "help": "Subtracts one value from another and may also be used to negate a value",
+            "sockets": [
+                {
+                    "name": "minus",
+                    "type": "number",
+                    "value": "0"
+                },
+                {
+                    "name": "-",
+                    "type": "number",
+                    "value": "0"
+                }
+            ]
+        },
+        {
+            "blocktype": "expression",
+            "id": "bd3879e6-e440-49cb-b10b-52d744846341",
+            "type": "any",
+            "script": "({{1}} * {{2}})",
+            "help": "Multiplies the values of the two parameters",
+            "sockets": [
+                {
+                    "name": "multiply",
+                    "type": "any",
+                    "value": "0"
+                },
+                {
+                    "name": "*",
+                    "type": "any",
+                    "value": "0"
+                }
+            ]
+        },
+        {
+            "blocktype": "expression",
+            "id": "7f51bf70-a48d-4fda-ab61-442a0766abc4",
+            "type": "number",
+            "script": "({{1}} / {{2}})",
+            "help": "Divides the value of the second parameter by the value of the first parameter",
+            "sockets": [
+                {
+                    "name": "divide",
+                    "type": "number",
+                    "value": "0"
+                },
+                {
+                    "name": "/",
+                    "type": "number",
+                    "value": "0"
+                }
+            ]
+        },
+        {
+            "blocktype": "expression",
+            "id": "a2647515-2f14-4d0f-84b1-a6e288823630",
+            "type": "number",
+            "script": "({{1}} % {{2}})",
+            "help": "Calculates the remainer when one number is divided by another",
+            "sockets": [
+                {
+                    "name": "modulo",
+                    "type": "number",
+                    "value": "0"
+                },
+                {
+                    "name": "%",
+                    "type": "number",
+                    "value": "0"
+                }
+            ]
+        },
+        {
+            "blocktype": "expression",
+            "id": "a35fb291-e2fa-42bb-a5a6-2124bb33157d",
+            "type": "number",
+            "script": "random({{1}}, {{2}})",
+            "help": "Generates random numbers",
+            "sockets": [
+                {
+                    "name": "random low",
+                    "type": "number",
+                    "value": "0"
+                },
+                {
+                    "name": "high",
                     "type": "number",
                     "value": "10"
                 }
             ]
         },
         {
-            "blocktype": "step",
-            "id": "b7079d91-f76d-41cc-a6aa-43fc2749429c",
-            "script": "global.stage.dispatchEvent(new CustomEvent(\"wb_\" + {{1}}));",
-            "help": "send this message to any listeners",
+            "blocktype": "expression",
+            "id": "4f7803c0-24b1-4a0c-a461-d46acfe9ab25",
+            "type": "number",
+            "script": "round({{1}})",
+            "help": "Calculates the integer closest to the value parameter",
             "sockets": [
                 {
-                    "name": "broadcast",
-                    "type": "string",
-                    "value": "ack"
+                    "name": "round",
+                    "type": "number",
+                    "value": "0"
+                }
+            ]
+        },
+        {
+            "blocktype": "expression",
+            "id": "c38383df-a765-422e-b215-7d1cfb7557a1",
+            "type": "number",
+            "script": "abs({{1}})",
+            "help": "Calculates the absolute value (magnitude) of a number",
+            "sockets": [
+                {
+                    "name": "absolute",
+                    "type": "number",
+                    "value": "10"
+                }
+            ]
+        },
+        {
+            "blocktype": "expression",
+            "id": "8a4a81d8-de25-46f0-b610-97d4f6fffbff",
+            "type": "number",
+            "script": "pow({{1}}, {{2}})",
+            "help": "Facilitates exponential expressions",
+            "sockets": [
+                {
+                    "name": "pow",
+                    "type": "number",
+                    "value": "10"
                 },
                 {
-                    "name": "message"
+                    "name": "to the power of",
+                    "type": "number",
+                    "value": "2"
                 }
             ]
         },
         {
-            "blocktype": "step",
-            "id": "d175bd7d-c7fd-4465-8b1f-c82687f35577",
-            "script": "global.stage.dispatchEvent(new CustomEvent(\"wb_\" + {{1}}, {detail: {{2}}}));",
-            "help": "send this message with an object argument to any listeners",
+            "blocktype": "expression",
+            "id": "668798a3-f15e-4839-b4b3-da5db380aa5a",
+            "type": "number",
+            "script": "sqrt({{1}})",
+            "help": "Calculates the square root of a number",
             "sockets": [
                 {
-                    "name": "broadcast",
-                    "type": "string",
-                    "value": "ping"
+                    "name": "square root",
+                    "type": "number",
+                    "value": "10"
+                }
+            ]
+        },
+        {
+            "blocktype": "expression",
+            "id": "46bcac2d-eb76-417c-81af-cb894a54a86c",
+            "type": "number",
+            "script": "floor({{1}})",
+            "help": "Calculates the closest int value that is less than or equal to the value of the parameter",
+            "sockets": [
+                {
+                    "name": "floor of",
+                    "type": "number",
+                    "value": "10"
+                }
+            ]
+        },
+        {
+            "blocktype": "expression",
+            "id": "4945df27-f4f3-490b-94ae-67c7081f744b",
+            "type": "number",
+            "script": "ceil({{1}})",
+            "help": "Calculates the closest int value that is greater than or equal to the value of the parameter",
+            "sockets": [
+                {
+                    "name": "ceiling",
+                    "type": "number",
+                    "value": "10"
+                }
+            ]
+        },
+        {
+            "blocktype": "expression",
+            "id": "ce4bf2bc-a06a-47f4-ac05-df2213d087a5",
+            "type": "number",
+            "script": "cos(radians({{1}}))",
+            "help": "Calculates the cosine of an angle",
+            "sockets": [
+                {
+                    "name": "cosine",
+                    "type": "number",
+                    "value": "10"
                 },
                 {
-                    "name": "message with data",
-                    "type": "any",
-                    "value": null
+                    "name": "degrees"
                 }
             ]
         },
         {
-            "blocktype": "eventhandler",
-            "id": "3931a20c-f510-45e4-83d2-4005983d5cae",
-            "script": "global.stage.addEventListener(\"wb_\" + {{1}}, function(){[[1]]});",
-            "help": "add a listener for the given message, run these blocks when it is received",
+            "blocktype": "expression",
+            "id": "1a8f6a28-14e9-4400-8e80-31217309ebc9",
+            "type": "number",
+            "script": "sin(radians({{1}}))",
+            "help": "Calculates the sine of an angle",
             "sockets": [
                 {
-                    "name": "when I receive",
-                    "type": "string",
-                    "value": "ack"
+                    "name": "sine",
+                    "type": "number",
+                    "value": "10"
                 },
                 {
-                    "name": "message"
+                    "name": "degrees"
                 }
             ]
         },
         {
-            "blocktype": "eventhandler",
-            "id": "a0496339-c405-4d1c-8185-9bc211bf5a56",
-            "script": "global.stage.addEventListener(\"wb_\" + {{1}}, function(event){local.data##=event.detail;[[1]]});",
-            "locals": [
-                {
-                    "blocktype": "expression",
-                    "sockets": [
-                        {
-                            "name": "data##"
-                        }
-                    ],
-                    "script": "local.data##",
-                    "type": "any"
-                }
-            ],
-            "help": "add a listener for the given message which receives data, run these blocks when it is received",
+            "blocktype": "expression",
+            "id": "fcecb61b-7fd9-4a92-b6cb-77d0a2fc8541",
+            "type": "number",
+            "script": "tan(radians({{1}}))",
+            "help": "Calculates the ratio of the sine and cosine of an angle",
             "sockets": [
                 {
-                    "name": "when I receive",
-                    "type": "string",
-                    "value": "ping"
+                    "name": "tangent",
+                    "type": "number",
+                    "value": "10"
                 },
                 {
-                    "name": "message with data"
+                    "name": "degrees"
                 }
             ]
         },
         {
-            "blocktype": "context",
-            "id": "b1e43170-800a-4e9b-af82-0ed5c62c47a0",
-            "script": "while({{1}}){[[1]]}",
-            "help": "repeat until the condition is false",
+            "blocktype": "expression",
+            "id": "9bf66bb0-c182-42e5-b3a7-cf10de26b08c",
+            "type": "number",
+            "script": "degrees(acos({{1}}))",
+            "help": "The inverse of cos(), returns the arc cosine of a value",
             "sockets": [
                 {
-                    "name": "forever if",
-                    "type": "boolean",
-                    "value": "false"
+                    "name": "arccosine degrees of",
+                    "type": "number",
+                    "value": "10"
                 }
             ]
         },
         {
-            "blocktype": "context",
-            "id": "20ba3e08-74c0-428e-b612-53545de63ce0",
-            "script": "if({{1}}){[[1]]}",
-            "help": "run the following blocks only if the condition is true",
+            "blocktype": "expression",
+            "id": "92f79a75-e3f4-4fc7-8f17-bf586aef180b",
+            "type": "number",
+            "script": "degrees(asin({{1}}))",
+            "help": "The inverse of sin(), returns the arc sine of a value",
             "sockets": [
                 {
-                    "name": "if",
-                    "type": "boolean",
-                    "value": null
+                    "name": "arcsine degrees of",
+                    "type": "number",
+                    "value": "10"
                 }
             ]
         },
         {
-            "blocktype": "context",
-            "id": "6dddaf61-caf0-4976-a3f1-9d9c3bbbf5a4",
-            "script": "if( ! {{1}} ){ [[1]] }",
-            "help": "run the  blocks if the condition is not true",
+            "blocktype": "expression",
+            "id": "1f5ee069-148e-4e4a-a514-5179af86be15",
+            "type": "number",
+            "script": "degrees(atan({{1}}))",
+            "help": "The inverse of tan(), returns the arc tangent of a value",
             "sockets": [
                 {
-                    "name": "if not",
-                    "type": "boolean",
-                    "value": null
+                    "name": "arctangent degrees of",
+                    "type": "number",
+                    "value": "10"
                 }
             ]
         },
         {
-            "blocktype": "context",
-            "id": "5a09e58a-4f45-4fa8-af98-84de735d0fc8",
-            "script": "while(!({{1}})){[[1]]}",
-            "help": "repeat forever until condition is true",
+            "blocktype": "expression",
+            "id": "1f5ee069-148e-4e4a-a514-5f79a8874e15",
+            "type": "number",
+            "script": "degrees({{1}})",
+            "help": "Converts a radian measurement to its corresponding value in degrees",
             "sockets": [
                 {
-                    "name": "repeat until",
-                    "type": "boolean",
-                    "value": null
+                    "name": "degrees",
+                    "type": "number",
+                    "value": "10"
                 }
             ]
-        }
+        },
+        {
+            "blocktype": "expression",
+            "id": "1f5ee069-148e-4e4a-a514-179a886keqw",
+            "type": "number",
+            "script": "radians({{1}})",
+            "help": "Converts a degree measurement to its corresponding value in radians",
+            "sockets": [
+                {
+                    "name": "radians",
+                    "type": "number",
+                    "value": "10"
+                }
+            ]
+        },
+        {
+            "blocktype": "expression",
+            "id": "a34c51d9-bfa0-49ad-8e7d-b653611836d3",
+            "script": "PI;",
+            "type": "number",
+            "help": "pi is the ratio of a circle's circumference to its diameter",
+            "sockets": [
+                {
+                    "name": "pi"
+                }
+            ]
+        },
+        {
+            "blocktype": "expression",
+            "id": "da2c8203-bf80-4617-a762-92dd4d7bfa27",
+            "script": "TWO_PI",
+            "type": "number",
+            "help": "Two pi (tau) is 2 times pi, a generally more useful number",
+            "sockets": [
+                {
+                    "name": "two pi"
+                }
+            ]
+        },
     ]
 }
 );
-/*end languages/processingjs/control.json*/
+/*end languages/processingjs/math.json*/
 
 /*begin languages/processingjs/sprite.json*/
 wb.menu({
@@ -7124,335 +7347,6 @@ wb.menu({
 }
 );
 /*end languages/processingjs/image.json*/
-
-/*begin languages/processingjs/math.json*/
-wb.menu({
-    "name": "Math",
-    "blocks": [
-        {
-            "blocktype": "expression",
-            "id": "406d4e12-7dbd-4f94-9b0e-e2a66d960b3c",
-            "type": "number",
-            "script": "({{1}} + {{2}})",
-            "help": "sum of the two operands",
-            "sockets": [
-                {
-                    "name": "",
-                    "type": "number",
-                    "value": "0"
-                },
-                {
-                    "name": "+",
-                    "type": "number",
-                    "value": "0"
-                }
-            ]
-        },
-        {
-            "blocktype": "expression",
-            "id": "d7082309-9f02-4cf9-bcd5-d0cac243bff9",
-            "type": "number",
-            "script": "({{1}} - {{2}})",
-            "help": "difference of the two operands",
-            "sockets": [
-                {
-                    "name": "",
-                    "type": "number",
-                    "value": "0"
-                },
-                {
-                    "name": "-",
-                    "type": "number",
-                    "value": "0"
-                }
-            ]
-        },
-        {
-            "blocktype": "expression",
-            "id": "bd3879e6-e440-49cb-b10b-52d744846341",
-            "type": "number",
-            "script": "({{1}} * {{2}})",
-            "help": "product of the two operands",
-            "sockets": [
-                {
-                    "name": "",
-                    "type": "number",
-                    "value": "0"
-                },
-                {
-                    "name": "*",
-                    "type": "number",
-                    "value": "0"
-                }
-            ]
-        },
-        {
-            "blocktype": "expression",
-            "id": "7f51bf70-a48d-4fda-ab61-442a0766abc4",
-            "type": "number",
-            "script": "({{1}} / {{2}})",
-            "help": "quotient of the two operands",
-            "sockets": [
-                {
-                    "name": "",
-                    "type": "number",
-                    "value": "0"
-                },
-                {
-                    "name": "/",
-                    "type": "number",
-                    "value": "0"
-                }
-            ]
-        },
-        {
-            "blocktype": "expression",
-            "id": "a35fb291-e2fa-42bb-a5a6-2124bb33157d",
-            "type": "number",
-            "script": "randint({{1}}, {{2}})",
-            "help": "random number between two numbers (inclusive)",
-            "sockets": [
-                {
-                    "name": "pick random",
-                    "type": "number",
-                    "value": "1"
-                },
-                {
-                    "name": "to",
-                    "type": "number",
-                    "value": "10"
-                }
-            ]
-        },
-        {
-            "blocktype": "expression",
-            "id": "a2647515-2f14-4d0f-84b1-a6e288823630",
-            "type": "number",
-            "script": "({{1}} % {{2}})",
-            "help": "modulus of a number is the remainder after whole number division",
-            "sockets": [
-                {
-                    "name": "",
-                    "type": "number",
-                    "value": "0"
-                },
-                {
-                    "name": "mod",
-                    "type": "number",
-                    "value": "0"
-                }
-            ]
-        },
-        {
-            "blocktype": "expression",
-            "id": "4f7803c0-24b1-4a0c-a461-d46acfe9ab25",
-            "type": "number",
-            "script": "Math.round({{1}})",
-            "help": "rounds to the nearest whole number",
-            "sockets": [
-                {
-                    "name": "round",
-                    "type": "number",
-                    "value": "0"
-                }
-            ]
-        },
-        {
-            "blocktype": "expression",
-            "id": "c38383df-a765-422e-b215-7d1cfb7557a1",
-            "type": "number",
-            "script": "Math.abs({{1}})",
-            "help": "converts a negative number to positive, leaves positive alone",
-            "sockets": [
-                {
-                    "name": "absolute of",
-                    "type": "number",
-                    "value": "10"
-                }
-            ]
-        },
-        {
-            "blocktype": "expression",
-            "id": "9bf66bb0-c182-42e5-b3a7-cf10de26b08c",
-            "type": "number",
-            "script": "rad2deg(Math.acos({{1}}))",
-            "help": "inverse of cosine",
-            "sockets": [
-                {
-                    "name": "arccosine degrees of",
-                    "type": "number",
-                    "value": "10"
-                }
-            ]
-        },
-        {
-            "blocktype": "expression",
-            "id": "92f79a75-e3f4-4fc7-8f17-bf586aef180b",
-            "type": "number",
-            "script": "rad2deg(Math.asin({{1}}))",
-            "help": "inverse of sine",
-            "sockets": [
-                {
-                    "name": "arcsine degrees of",
-                    "type": "number",
-                    "value": "10"
-                }
-            ]
-        },
-        {
-            "blocktype": "expression",
-            "id": "1f5ee069-148e-4e4a-a514-5179af86be15",
-            "type": "number",
-            "script": "rad2deg(Math.atan({{1}}))",
-            "help": "inverse of tangent",
-            "sockets": [
-                {
-                    "name": "arctangent degrees of",
-                    "type": "number",
-                    "value": "10"
-                }
-            ]
-        },
-        {
-            "blocktype": "expression",
-            "id": "46bcac2d-eb76-417c-81af-cb894a54a86c",
-            "type": "number",
-            "script": "Math.floor({{1}})",
-            "help": "rounds down to nearest whole number",
-            "sockets": [
-                {
-                    "name": "floor of",
-                    "type": "number",
-                    "value": "10"
-                }
-            ]
-        },
-        {
-            "blocktype": "expression",
-            "id": "4945df27-f4f3-490b-94ae-67c7081f744b",
-            "type": "number",
-            "script": "Math.ceil({{1}})",
-            "help": "rounds up to nearest whole number",
-            "sockets": [
-                {
-                    "name": "ceiling of",
-                    "type": "number",
-                    "value": "10"
-                }
-            ]
-        },
-        {
-            "blocktype": "expression",
-            "id": "ce4bf2bc-a06a-47f4-ac05-df2213d087a5",
-            "type": "number",
-            "script": "Math.cos(deg2rad({{1}}))",
-            "help": "ratio of the length of the adjacent side to the length of the hypotenuse",
-            "sockets": [
-                {
-                    "name": "cosine of",
-                    "type": "number",
-                    "value": "10"
-                },
-                {
-                    "name": "degrees"
-                }
-            ]
-        },
-        {
-            "blocktype": "expression",
-            "id": "1a8f6a28-14e9-4400-8e80-31217309ebc9",
-            "type": "number",
-            "script": "Math.sin(deg2rad({{1}}))",
-            "help": "ratio of the length of the opposite side to the length of the hypotenuse",
-            "sockets": [
-                {
-                    "name": "sine of",
-                    "type": "number",
-                    "value": "10"
-                },
-                {
-                    "name": "degrees"
-                }
-            ]
-        },
-        {
-            "blocktype": "expression",
-            "id": "fcecb61b-7fd9-4a92-b6cb-77d0a2fc8541",
-            "type": "number",
-            "script": "Math.tan(deg2rad({{1}}))",
-            "help": "ratio of the length of the opposite side to the length of the adjacent side",
-            "sockets": [
-                {
-                    "name": "tangent of",
-                    "type": "number",
-                    "value": "10"
-                },
-                {
-                    "name": "degrees"
-                }
-            ]
-        },
-        {
-            "blocktype": "expression",
-            "id": "8a4a81d8-de25-46f0-b610-97d4f6fffbff",
-            "type": "number",
-            "script": "Math.pow({{1}}, {{2}})",
-            "help": "multiply a number by itself the given number of times",
-            "sockets": [
-                {
-                    "name": "",
-                    "type": "number",
-                    "value": "10"
-                },
-                {
-                    "name": "to the power of",
-                    "type": "number",
-                    "value": "2"
-                }
-            ]
-        },
-        {
-            "blocktype": "expression",
-            "id": "668798a3-f15e-4839-b4b3-da5db380aa5a",
-            "type": "number",
-            "script": "Math.sqrt({{1}})",
-            "help": "the square root is the same as taking the to the power of 1/2",
-            "sockets": [
-                {
-                    "name": "square root of",
-                    "type": "number",
-                    "value": "10"
-                }
-            ]
-        },
-        {
-            "blocktype": "expression",
-            "id": "a34c51d9-bfa0-49ad-8e7d-b653611836d3",
-            "script": "Math.PI;",
-            "type": "number",
-            "help": "pi is the ratio of a circle's circumference to its diameter",
-            "sockets": [
-                {
-                    "name": "pi"
-                }
-            ]
-        },
-        {
-            "blocktype": "expression",
-            "id": "da2c8203-bf80-4617-a762-92dd4d7bfa27",
-            "script": "Math.PI * 2",
-            "type": "number",
-            "help": "tau is 2 times pi, a generally more useful number",
-            "sockets": [
-                {
-                    "name": "tau"
-                }
-            ]
-        }
-    ]
-}
-);
-/*end languages/processingjs/math.json*/
 
 /*begin languages/processingjs/object.json*/
 wb.menu({
