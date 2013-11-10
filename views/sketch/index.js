@@ -22,7 +22,7 @@ exports.read = function (req, res, next) {
     console.log('SKETCH', sketches);
     console.log('ERR', err);
   });
-  res.render('sketch/index', { sketch: { id: JSON.stringify(req.params.id)}});
+  res.render('sketch/index', { sketch: { id: req.params.id}});
 };
 
 

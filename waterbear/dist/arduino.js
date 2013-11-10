@@ -1982,12 +1982,12 @@ window.onunload = saveCurrentScripts;
 // Save script to gist;
 function saveCurrentScriptsToGist(){
 	console.log("Saving to Gist");
-	var title = prompt("Save to an anonymous Gist titled: ");
-
+	//var title = prompt("Save to an anonymous Gist titled: ");
+        var title = 'sketch';
 	ajax.post("https://api.github.com/gists", function(data){
         //var raw_url = JSON.parse(data).files["script.json"].raw_url;
         var gistID = JSON.parse(data).url.split("/").pop();
-        prompt("This is your Gist ID. Copy to clipboard: Ctrl+C, Enter", gistID);
+        prompt("This is your GIST", 'http://gist.github.com/' + gistID);
 
         //save gist id to local storage
         var localGists = localStorage['__' + language + '_recent_gists'];
@@ -2041,7 +2041,10 @@ Event.on('.save_scripts', 'click', null, saveCurrentScriptsToGist);
 Event.on('.download_scripts', 'click', null, createDownloadUrl);
 Event.on('.load_from_gist', 'click', null, loadScriptsFromGistId);
 Event.on('.restore_scripts', 'click', null, loadScriptsFromFilesystem);
-
+window.saveCurrentScriptsToGist = saveCurrentScriptsToGist;
+window.loadScriptsFromGistId = loadScriptsFromGistId;
+window.loadScriptsFromFilesystem = loadScriptsFromFilesystem;
+window.createDownloadUrl = createDownloadUrl;
 
 function loadScriptsFromGistId(){
 	var gistID = prompt("What Gist would you like to load?");
