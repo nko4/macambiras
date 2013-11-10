@@ -3213,8 +3213,10 @@ function uuid(){
                 value = obj.uValue || obj.value || 0; break;
             case 'string':
                 value = obj.uValue || obj.value || ''; break;
+            //case 'color':
+            //    value = obj.uValue || obj.value || '#000000'; break;
             case 'color':
-                value = obj.uValue || obj.value || '#000000'; break;
+                value = obj.uValue || obj.value || '(0,0,0)'; break;
             case 'date':
                 value = obj.uValue || obj.value || new Date().toISOString().split('T')[0]; break;
             case 'time':
@@ -3263,7 +3265,8 @@ function uuid(){
         }else{
             var value = wb.findChild(holder, 'input, select').value;
             var type = holder.parentElement.dataset.type;
-            if (type === 'string' || type === 'choice' || type === 'color'){
+            //if (type === 'string' || type === 'choice' || type === 'color'){
+            if (type === 'string' || type === 'choice'){
                 if (value[0] === '"'){value = value.slice(1);}
                 if (value[value.length-1] === '"'){value = value.slice(0,-1);}
                 value = value.replace(/"/g, '\\"');

@@ -3213,8 +3213,10 @@ function uuid(){
                 value = obj.uValue || obj.value || 0; break;
             case 'string':
                 value = obj.uValue || obj.value || ''; break;
+            //case 'color':
+            //    value = obj.uValue || obj.value || '#000000'; break;
             case 'color':
-                value = obj.uValue || obj.value || '#000000'; break;
+                value = obj.uValue || obj.value || '(0,0,0)'; break;
             case 'date':
                 value = obj.uValue || obj.value || new Date().toISOString().split('T')[0]; break;
             case 'time':
@@ -3263,7 +3265,8 @@ function uuid(){
         }else{
             var value = wb.findChild(holder, 'input, select').value;
             var type = holder.parentElement.dataset.type;
-            if (type === 'string' || type === 'choice' || type === 'color'){
+            //if (type === 'string' || type === 'choice' || type === 'color'){
+            if (type === 'string' || type === 'choice'){
                 if (value[0] === '"'){value = value.slice(1);}
                 if (value[value.length-1] === '"'){value = value.slice(0,-1);}
                 value = value.replace(/"/g, '\\"');
@@ -4214,12 +4217,12 @@ wb.menu({
                 {
                     "name": "size X",
                     "type": "number",
-                    "value": "200"
+                    "value": "400"
                 },
                 {
                     "name": "Y",
                     "type": "number",
-                    "value": "200"
+                    "value": "600"
                 }
             ]
         },
@@ -4530,7 +4533,7 @@ wb.menu({
         {
             "blocktype": "step",
             "id": "01123271-6dc0-4a82-81cc-4c50d8wcb9e7",
-            "script": "background({{1}});",
+            "script": "background(color({{1}}));",
             "help": "Set background color",
             "sockets": [
                 {
@@ -4540,9 +4543,21 @@ wb.menu({
             ]
         },
         {
+            "blocktype": "expression",
+            "id": "da9a266b-8ec0-4b97-bd79-b18dc7d4596f",
+            "type": "color",
+            "script": "color(random(0,255), random(0,255), random(0,255))",
+            "help": "Returns a random RBG color",
+            "sockets": [
+                {
+                    "name": "random color"
+                }
+            ]
+        },
+        {
             "blocktype": "step",
             "id": "01543271-6dc0-4a82-81cc-4c50d812b978",
-            "script": "fill({{1}});",
+            "script": "fill(color({{1}}));",
             "help": "Set fill color",
             "sockets": [
                 {
@@ -4554,7 +4569,7 @@ wb.menu({
         {
             "blocktype": "step",
             "id": "01983271-6dc0-wa82-81cc-4c50d8ecb9e7",
-            "script": "stroke({{1}});",
+            "script": "stroke(color({{1}}));",
             "help": "Set stroke color",
             "sockets": [
                 {
@@ -4588,7 +4603,7 @@ wb.menu({
         {
             "blocktype": "step",
             "id": "0237b5ab-d22a-45f9-af38-4a64bc98dbc3",
-            "script": "colorMode( {{1}}, {{2}});",
+            "script": "colorMode({{1}}, {{2}});",
             "help": "Changes the way Processing interprets color data",
             "sockets": [
                 {
