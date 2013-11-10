@@ -12,4 +12,7 @@ exports = module.exports = function(app, mongoose) {
   require('./schema/Admin')(app, mongoose);
   require('./schema/AdminGroup')(app, mongoose);
   require('./schema/Account')(app, mongoose);
+
+  //sketch
+  require('./schema/Sketch')(app, mongoose);
 };

@@ -155,6 +155,10 @@ exports = module.exports = function(app, passport) {
   app.get('/account/settings/facebook/', passport.authenticate('facebook', { callbackURL: '/account/settings/facebook/callback/' }));
   app.get('/account/settings/facebook/callback/', require('./views/account/settings/index').connectFacebook);
   app.get('/account/settings/facebook/disconnect/', require('./views/account/settings/index').disconnectFacebook);
+
+  //sketch
+  app.get('/sketch/:id', require('./views/sketch').read);
+  app.post('/sketch/:id', require('./views/sketch').create);
   
   //route not found
   app.all('*', require('./views/http/index').http404);
