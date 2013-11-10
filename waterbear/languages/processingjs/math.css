@@ -1,9 +1,4 @@
 .math, .math .holder{
-    border-color: hsl(264,62%,79%);
-    background-color: hsl(264,62%,89%);
+    border-color: hsl(195, 65%, 79%);
+    background-color: hsl(195, 62%, 89%);
 }
-
-.number, .number .holder{
-    border-color: blue;
-}
-
