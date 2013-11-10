@@ -11,6 +11,8 @@ block feet
 block body
   b Foo !{sketch.id}
   div#context_menu
+  div#block_menu_load
+    | Loading...
   div#block_menu
     div(class='workspace blockview')
       div.tabbar
@@ -22,6 +24,8 @@ block body
   div(class="content result")
     div.stage
       iframe(id='preview_iframe' class='stageframe' width='100%' height='100%')
+  svg
+    text
   script(src='/media/processingjs.js')
 
 
