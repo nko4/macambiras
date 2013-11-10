@@ -117,7 +117,7 @@
         },
         {
             "blocktype": "expression",
-            "id": "a2647515-2f14-4d0f-84b1-a6e288823630",
+            "id": "a2647515-2f14-4d0f-84b1-p0e288823630",
             "type": "number",
             "script": "({{1}} % {{2}})",
             "help": "Calculates the remainer when one number is divided by another",
@@ -142,12 +142,12 @@
             "help": "Generates random numbers",
             "sockets": [
                 {
-                    "name": "random low",
+                    "name": "random",
                     "type": "number",
                     "value": "0"
                 },
                 {
-                    "name": "high",
+                    "name": "",
                     "type": "number",
                     "value": "10"
                 }
@@ -194,7 +194,7 @@
                     "value": "10"
                 },
                 {
-                    "name": "to the power of",
+                    "name": "^",
                     "type": "number",
                     "value": "2"
                 }
@@ -222,7 +222,7 @@
             "help": "Calculates the closest int value that is less than or equal to the value of the parameter",
             "sockets": [
                 {
-                    "name": "floor of",
+                    "name": "floor",
                     "type": "number",
                     "value": "10"
                 }
@@ -301,7 +301,7 @@
             "help": "The inverse of cos(), returns the arc cosine of a value",
             "sockets": [
                 {
-                    "name": "arccosine degrees of",
+                    "name": "arccosine degrees",
                     "type": "number",
                     "value": "10"
                 }
@@ -315,7 +315,7 @@
             "help": "The inverse of sin(), returns the arc sine of a value",
             "sockets": [
                 {
-                    "name": "arcsine degrees of",
+                    "name": "arcsine degrees",
                     "type": "number",
                     "value": "10"
                 }
@@ -323,13 +323,13 @@
         },
         {
             "blocktype": "expression",
-            "id": "1f5ee069-148e-4e4a-a514-5179af86be15",
+            "id": "0p5eeo69-148e-4e4a-a514-5179af86b615",
             "type": "number",
             "script": "degrees(atan({{1}}))",
             "help": "The inverse of tan(), returns the arc tangent of a value",
             "sockets": [
                 {
-                    "name": "arctangent degrees of",
+                    "name": "arctangent degrees",
                     "type": "number",
                     "value": "10"
                 }
@@ -337,7 +337,7 @@
         },
         {
             "blocktype": "expression",
-            "id": "1f5ee069-148e-4e4a-a514-5f79a8874e15",
+            "id": "1f53e062-118e-4e4a-a514-5f79a8874e15",
             "type": "number",
             "script": "degrees({{1}})",
             "help": "Converts a radian measurement to its corresponding value in degrees",
@@ -351,7 +351,7 @@
         },
         {
             "blocktype": "expression",
-            "id": "1f5ee069-148e-4e4a-a514-179a886keqw",
+            "id": "1f5ee064-148e-4e4a-a514-179a886keqw",
             "type": "number",
             "script": "radians({{1}})",
             "help": "Converts a degree measurement to its corresponding value in radians",

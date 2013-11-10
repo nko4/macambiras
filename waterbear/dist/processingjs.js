@@ -3213,10 +3213,10 @@ function uuid(){
                 value = obj.uValue || obj.value || 0; break;
             case 'string':
                 value = obj.uValue || obj.value || ''; break;
-            //case 'color':
-            //    value = obj.uValue || obj.value || '#000000'; break;
             case 'color':
-                value = obj.uValue || obj.value || '(0,0,0)'; break;
+                value = obj.uValue || obj.value || '#000000'; break;
+            //case 'color':
+            //    value = obj.uValue || obj.value || '(0,0,0)'; break;
             case 'date':
                 value = obj.uValue || obj.value || new Date().toISOString().split('T')[0]; break;
             case 'time':
@@ -3265,8 +3265,8 @@ function uuid(){
         }else{
             var value = wb.findChild(holder, 'input, select').value;
             var type = holder.parentElement.dataset.type;
-            //if (type === 'string' || type === 'choice' || type === 'color'){
-            if (type === 'string' || type === 'choice'){
+            if (type === 'string' || type === 'choice' || type === 'color'){
+            //if (type === 'string' || type === 'choice'){
                 if (value[0] === '"'){value = value.slice(1);}
                 if (value[value.length-1] === '"'){value = value.slice(0,-1);}
                 value = value.replace(/"/g, '\\"');
@@ -4228,19 +4228,6 @@ wb.menu({
         },
         {
             "blocktype": "step",
-            "id": "71eb3271-6dc0-4122-82cc-4c5077ac19e7",
-            "script": "frameRate({{1}});",
-            "help": "Set frame rate",
-            "sockets": [
-                {
-                    "name": "frame rate",
-                    "type": "number",
-                    "value": "60"
-                }
-            ]
-        },
-        {
-            "blocktype": "step",
             "id": "06723171-6d20-4a32-814c-2c50d8wcb9e7",
             "script": "noLoop();",
             "help": "Stops Processing from continuously executing the code within draw()",
@@ -4272,15 +4259,65 @@ wb.menu({
     "name": "Environment",
     "blocks": [
         {
-            "blocktype": "step",
-            "id": "01123271-6746-66u2-m18c-8ci0d8cc9e7",
-            "script": "background({{1}});",
-            "help": "Set background color",
+            "blocktype": "expression",
+            "id": "da2c8203-bf80-4647-a762-928d477b5a27",
+            "script": "height",
+            "type": "number",
+            "help": "System variable which stores the height of the display window",
             "sockets": [
                 {
-                    "name": "background color",
-                    "type": "color",
+                    "name": "height"
                 }
+            ]
+        },
+        {
+            "blocktype": "expression",
+            "id": "nadc82i3-bf70-4617-a732-920d497b5a27",
+            "script": "width",
+            "type": "number",
+            "help": "System variable which stores the width of the display window",
+            "sockets": [
+                {
+                    "name": "width"
+                }
+            ]
+        },
+        {
+            "blocktype": "expression",
+            "id": "25pc82i3-bf70-4617-a732-920c4n7bya2",
+            "script": "frameCount",
+            "type": "number",
+            "help": "The system variable frameCount contains the number of frames displayed since the program started",
+            "sockets": [
+                {
+                    "name": "frame count"
+                }
+            ]
+        },
+        {
+            "blocktype": "step",
+            "id": "71eb3271-6de0-4122-82cc-4c5077ac19e7",
+            "script": "frameRate({{1}});",
+            "help": "Set frame rate",
+            "sockets": [
+                {
+                    "name": "frame rate",
+                    "type": "number",
+                    "value": "60"
+                }
+            ]
+        },
+        {
+            "blocktype": "step",
+            "id": "916c79df-40f1-4280-a0p3-6d0df954d87e",
+            "script": "alert(\"{{1}} value =\"+ {{1}});",
+            "help": "Alert the user some information",
+            "sockets": [
+                {
+                    "name": "print",
+                    "type": "any",
+                    "value": null
+                },
             ]
         },
     ]
@@ -4289,42 +4326,313 @@ wb.menu({
 );
 /*end languages/processingjs/environment.json*/
 
+/*begin languages/processingjs/controls.json*/
+wb.menu({
+    "name": "Control",
+    "blocks": [
+        {
+            "blocktype": "step",
+            "id": "079b2b89-41c2-4d00-8n21-rcf62146960",
+            "script": "int variable## = {{1}};",
+            "locals": [
+                {
+                    "blocktype": "expression",
+                    "script": "variable##",
+                    "type": "number",
+                    "sockets": [
+                        {
+                            "name": "variable##"
+                        }
+                    ]
+                }
+            ],
+            "help": "Create a integer variable reference to re-use",
+            "sockets": [
+                {
+                    "name": "int variable value",
+                    "type": "number",
+                    "value": 0
+                }
+            ]
+        },
+        {
+            "blocktype": "step",
+            "id": "079b2b89-41c2-4d00-8e21-bcd62f4bm90",
+            "script": "char variable## = {{1}};",
+            "locals": [
+                {
+                    "blocktype": "expression",
+                    "script": "variable##",
+                    "type": "string",
+                    "sockets": [
+                        {
+                            "name": "variable##"
+                        }
+                    ]
+                }
+            ],
+            "help": "Create a char variable reference to re-use",
+            "sockets": [
+                {
+                    "name": "char variable value",
+                    "type": "string",
+                    "value": "string"
+                }
+            ]
+        },
+        {
+            "blocktype": "step",
+            "id": "b4036693-8645-4852-a4de-9e96565f92ec",
+            "script": "{{1}} = {{2}};",
+            "help": "first argument must be a variable",
+            "sockets": [
+                {
+                    "name": "set variable",
+                    "type": "any",
+                    "value": null
+                },
+                {
+                    "name": "to",
+                    "type": "any",
+                    "value": null
+                }
+            ]
+        },
+        {
+            "blocktype": "step",
+            "id": "9AED48C9-A90B-49FB-9C1A-FD632F0313F5",
+            "script": "{{1}} += {{2}};",
+            "help": "first argument must be a variable",
+            "sockets": [
+                {
+                    "name": "increment variable",
+                    "type": "any",
+                    "value": null
+                },
+                {
+                    "name": "by",
+                    "type": "any",
+                    "value": 1
+                }
+            ]
+        },
+        {
+            "blocktype": "expression",
+            "id": "e3a5ea20-3ca9-42cf-ac02-77ff32836a7e",
+            "type": "boolean",
+            "script": "({{1}} == {{2}})",
+            "help": "Determines if two values are equivalent",
+            "sockets": [
+                {
+                    "name": "",
+                    "type": "number",
+                    "value": "0"
+                },
+                {
+                    "name": "==",
+                    "type": "number",
+                    "value": "0"
+                }
+            ]
+        },
+        {
+            "blocktype": "expression",
+            "id": "d753757b-a7d4-4d84-99f1-cb9b567e62da",
+            "type": "boolean",
+            "script": "({{1}} < {{2}})",
+            "help": "Tests if the value on the left is smaller than the value on the right",
+            "sockets": [
+                {
+                    "name": "",
+                    "type": "number",
+                    "value": "0"
+                },
+                {
+                    "name": "<",
+                    "type": "number",
+                    "value": "0"
+                }
+            ]
+        },
+        {
+            "blocktype": "expression",
+            "id": "d753757b-a7d4-4d84-99f1-cb9bou7e62da",
+            "type": "boolean",
+            "script": "({{1}} <= {{2}})",
+            "help": "Tests if the value on the left is less than the value on the right or if the values are equivalent",
+            "sockets": [
+                {
+                    "name": "",
+                    "type": "number",
+                    "value": "0"
+                },
+                {
+                    "name": "<=",
+                    "type": "number",
+                    "value": "0"
+                }
+            ]
+        },        {
+            "blocktype": "expression",
+            "id": "5a1f5f68-d74b-4154-b376-6a0209f585ed",
+            "type": "boolean",
+            "script": "({{1}} > {{2}})",
+            "help": "Tests if the value on the left is larger than the value on the right",
+            "sockets": [
+                {
+                    "name": "",
+                    "type": "number",
+                    "value": "0"
+                },
+                {
+                    "name": ">",
+                    "type": "number",
+                    "value": "0"
+                }
+            ]
+        },
+        {
+            "blocktype": "expression",
+            "id": "5a1f5f58-d76b-4184-b376-5a32rff585ed",
+            "type": "boolean",
+            "script": "({{1}} >= {{2}})",
+            "help": "Tests if the value on the left is larger than the value on the right or if the values are equivalent",
+            "sockets": [
+                {
+                    "name": "",
+                    "type": "number",
+                    "value": "0"
+                },
+                {
+                    "name": ">=",
+                    "type": "number",
+                    "value": "0"
+                }
+            ]
+        },
+        {
+            "blocktype": "expression",
+            "id": "5a1f5f58-d76b-4184-b376-098245f4854d",
+            "type": "boolean",
+            "script": "({{1}} != {{2}})",
+            "help": "Determines if one expression is not equivalent to another",
+            "sockets": [
+                {
+                    "name": "",
+                    "type": "number",
+                    "value": "0"
+                },
+                {
+                    "name": "!=",
+                    "type": "number",
+                    "value": "0"
+                }
+            ]
+        },
+        {
+            "blocktype": "context",
+            "id": "20ba3e08-74c0-42de-b6f2-938409e63ce0",
+            "script": "if({{1}}){[[2]]}",
+            "help": "Allows the program to make a decision about which code to execute",
+            "sockets": [
+                {
+                    "name": "if",
+                    "type": "any",
+                    "value": null
+                },
+            ]
+        },
+        {
+            "blocktype": "context",
+            "id": "l0k23e48-74cp-420e-b6m2-n379po6lce0",
+            "script": "else {[[2]]}",
+            "help": "It specifies a block of code to execute when the expression in if() is false",
+            "sockets": [
+                {
+                    "name": "else",
+                },
+            ]
+        },
+        {
+            "blocktype": "context",
+            "id": "l0k23e48-74n0-42ge-b61h-cjk456x3ce0",
+            "script": "else if({{1}}){[[2]]}",
+            "help": "It specifies a block of code to execute when the expression in if() is false",
+            "sockets": [
+                {
+                    "name": "else if",
+                    "type": "any",
+                    "value": null
+                },
+            ]
+        },
+        {
+            "blocktype": "context",
+            "id": "1cf8132a-4996-45db-b482-4lkshre13c1",
+            "script": "for( {{1}}; {{2}}; {{3}}) { [[4]] }",
+            "help": "Controls a sequence of repetitions",
+            "sockets": [
+                {
+                    "name": "for init",
+                    "type": "any",
+                    "value": null
+                },
+                {
+                    "name": "test",
+                    "type": "any",
+                    "value": null
+                },
+                {
+                    "name": "update",
+                    "type": "any",
+                    "value": null
+                }
+            ]
+        },
+        {
+            "blocktype": "context",
+            "id": "1cf8132a-49y6-455b-b432-3posh2e13c1",
+            "script": "while( {{1}} ) { [[2]] }",
+            "help": "Controls a sequence of repetitions",
+            "sockets": [
+                {
+                    "name": "while",
+                    "type": "any",
+                    "value": null
+                },
+            ]
+        },
+    ]
+}
+
+);
+/*end languages/processingjs/controls.json*/
+
 /*begin languages/processingjs/shapes.json*/
 wb.menu({
     "name": "Shape",
     "blocks": [
         {
             "blocktype": "step",
-            "id": "82eb3271-6dc0-4a82-81cc-4c50d34c11e7",
-            "script": "ellipse({{1}}, {{2}}, {{3}}, {{4}});",
-            "help": "Create ellipse",
+            "id": "71eb32s1-6cc0-4322-82sc-4c50779c57e7",
+            "script": "point({{1}}, {{2}});",
+            "help": "Draws a point, a coordinate in space at the dimension of one pixel",
             "sockets": [
                 {
-                    "name": "ellipse X",
+                    "name": "point x",
                     "type": "number",
-                    "value": "200"
+                    "value": "30"
                 },
                 {
-                    "name": "Y",
+                    "name": "y",
                     "type": "number",
-                    "value": "200"
-                },
-                {
-                    "name": "radius",
-                    "type": "number",
-                    "value": "200"
-                },
-                {
-                    "name": "radius",
-                    "type": "number",
-                    "value": "200"
+                    "value": "20"
                 }
-
             ]
         },
         {
             "blocktype": "step",
-            "id": "71e73171-6dc0-4122-82cc-4253744618e7",
+            "id": "71e73171-6dc0-4122-82cc-4253748618e0",
             "script": "line({{1}}, {{2}}, {{3}}, {{4}});",
             "help": "Draws a line (a direct path between two points)",
             "sockets": [
@@ -4352,73 +4660,36 @@ wb.menu({
         },
         {
             "blocktype": "step",
-            "id": "71eb32s1-6cc0-4322-82sc-4c50774c59e7",
-            "script": "point({{1}}, {{2}});",
-            "help": "Draws a point, a coordinate in space at the dimension of one pixel",
+            "id": "82eb3271-6dc0-4a82-81cc-4cf0d94c11e7",
+            "script": "ellipse({{1}}, {{2}}, {{3}}, {{4}});",
+            "help": "Create ellipse",
             "sockets": [
                 {
-                    "name": "point x",
+                    "name": "ellipse X",
                     "type": "number",
-                    "value": "30"
+                    "value": "200"
                 },
                 {
-                    "name": "y",
+                    "name": "Y",
                     "type": "number",
-                    "value": "20"
+                    "value": "200"
+                },
+                {
+                    "name": "radius",
+                    "type": "number",
+                    "value": "200"
+                },
+                {
+                    "name": "radius",
+                    "type": "number",
+                    "value": "200"
                 }
+
             ]
         },
-        {
+       {
             "blocktype": "step",
-            "id": "91e73171-6ec0-4122-82cc-4c5074ax10e7",
-            "script": "quad({{1}}, {{2}}, {{3}}, {{4}}, {{5}}, {{6}}, {{7}}, {{8}});",
-            "help": "A quad is a quadrilateral, a four sided polygon",
-            "sockets": [
-                {
-                    "name": "quad x1",
-                    "type": "number",
-                    "value": "38"
-                },
-                {
-                    "name": "y1",
-                    "type": "number",
-                    "value": "31"
-                },
-                {
-                    "name": "x2",
-                    "type": "number",
-                    "value": "86"
-                },
-                {
-                    "name": "y2",
-                    "type": "number",
-                    "value": "20"
-                },
-                {
-                    "name": "x3",
-                    "type": "number",
-                    "value": "69"
-                },
-                {
-                    "name": "y3",
-                    "type": "number",
-                    "value": "63"
-                },
-                {
-                    "name": "x4",
-                    "type": "number",
-                    "value": "30"
-                },
-                {
-                    "name": "y4",
-                    "type": "number",
-                    "value": "76"
-                }
-            ]
-        },
-        {
-            "blocktype": "step",
-            "id": "715e83281-6c20-4362-824c-4c5277ac19e7",
+            "id": "715e83281-6c20-4362-824c-4c5277ac19ez",
             "script": "rect({{1}}, {{2}}, {{3}}, {{4}});",
             "help": "Draws a rectangle",
             "sockets": [
@@ -4484,6 +4755,54 @@ wb.menu({
         },
         {
             "blocktype": "step",
+            "id": "91e73171-6ec0-4122-82cc-4c5074axc0e7",
+            "script": "quad({{1}}, {{2}}, {{3}}, {{4}}, {{5}}, {{6}}, {{7}}, {{8}});",
+            "help": "A quad is a quadrilateral, a four sided polygon",
+            "sockets": [
+                {
+                    "name": "quad x1",
+                    "type": "number",
+                    "value": "38"
+                },
+                {
+                    "name": "y1",
+                    "type": "number",
+                    "value": "31"
+                },
+                {
+                    "name": "x2",
+                    "type": "number",
+                    "value": "86"
+                },
+                {
+                    "name": "y2",
+                    "type": "number",
+                    "value": "20"
+                },
+                {
+                    "name": "x3",
+                    "type": "number",
+                    "value": "69"
+                },
+                {
+                    "name": "y3",
+                    "type": "number",
+                    "value": "63"
+                },
+                {
+                    "name": "x4",
+                    "type": "number",
+                    "value": "30"
+                },
+                {
+                    "name": "y4",
+                    "type": "number",
+                    "value": "76"
+                }
+            ]
+        },
+        {
+            "blocktype": "step",
             "id": "018e83781-2c40-4162-824c-4c5277ac19e7",
             "script": "arc({{1}}, {{2}}, {{3}}, {{4}}, {{5}}, {{6}});",
             "help": "Draws an arc",
@@ -4520,31 +4839,286 @@ wb.menu({
                 }
             ]
         },
+        {
+            "blocktype": "step",
+            "id": "018e83781-2c40-4g62-820c-4852p7ak19e7",
+            "script": "bezier({{1}}, {{2}}, {{3}}, {{4}}, {{5}}, {{6}}, {{7}}, {{8}});",
+            "help": "Draws a Bezier curve",
+            "sockets": [
+                {
+                    "name": "bezier x1",
+                    "type": "number",
+                    "value": "30"
+                },
+                {
+                    "name": "y1",
+                    "type": "number",
+                    "value": "20"
+                },
+                {
+                    "name": "cx1",
+                    "type": "number",
+                    "value": "80"
+                },
+                {
+                    "name": "cy1",
+                    "type": "number",
+                    "value": "5"
+                },
+                {
+                    "name": "cx2",
+                    "type": "number",
+                    "value": "80"
+                },
+                {
+                    "name": "cy2",
+                    "type": "number",
+                    "value": "75"
+                },
+                {
+                    "name": "x2",
+                    "type": "number",
+                    "value": "30"
+                },
+                {
+                    "name": "y2",
+                    "type": "number",
+                    "value": "75"
+                }
+            ]
+        },
     ]
 }
 
 );
 /*end languages/processingjs/shapes.json*/
 
-/*begin languages/processingjs/colors.json*/
+/*begin languages/processingjs/input.json*/
 wb.menu({
-    "name": "Colors",
+    "name": "Input",
     "blocks": [
         {
-            "blocktype": "step",
-            "id": "01123271-6dc0-4a82-81cc-4c50d8wcb9e7",
-            "script": "background(color({{1}}));",
-            "help": "Set background color",
+            "blocktype": "expression",
+            "id": "01124271-6dc0-4j82-81kc-4si0i88c3907",
+            "script": "mouseButton",
+            "help": "Tracks if the mouse button is pressed and which button is pressed",
             "sockets": [
                 {
-                    "name": "background color",
-                    "type": "color",
+                    "name": "mouse button"
                 }
             ]
         },
         {
             "blocktype": "expression",
-            "id": "da9a266b-8ec0-4b97-bd79-b18dc7d4596f",
+            "id": "01124271-6dc0-4482-813c-4320331c3f07",
+            "script": "mousePressed",
+            "help": "Variable storing if a mouse button is pressed",
+            "sockets": [
+                {
+                    "name": "mousePressed"
+                }
+            ]
+        },
+        {
+            "blocktype": "expression",
+            "id": "01124271-6dc0-4a82-81cc-4050308c3907",
+            "script": "mouseX",
+            "help": "Contains the current horizontal coordinate of the mouse",
+            "sockets": [
+                {
+                    "name": "mouseX"
+                }
+            ]
+        },
+        {
+            "blocktype": "expression",
+            "id": "01124271-6dc0-4a82-81cc-47h737lc39p7",
+            "script": "mouseY",
+            "help": "Contains the current vertical coordinate of the mouse",
+            "sockets": [
+                {
+                    "name": "mouseY"
+                }
+            ]
+        },
+        {
+            "blocktype": "expression",
+            "id": "11134251-6dc0-4a82-81cc-4s5938893997",
+            "script": "pmouseX",
+            "help": "Contains the previous horizontal coordinate of the mouse",
+            "sockets": [
+                {
+                    "name": "pmouseX"
+                }
+            ]
+        },
+        {
+            "blocktype": "expression",
+            "id": "21124231-64c0-4a82-81cc-9s50358c3508",
+            "script": "pmouseY",
+            "help": "Contains the previous vertical coordinate of the mouse",
+            "sockets": [
+                {
+                    "name": "pmouseY"
+                }
+            ]
+        },
+        {
+            "blocktype": "eventhandler",
+            "id": "1c4813ra-4v96-45ds-ee82-3e132200e3c8",
+            "script": "void mouseClicked(){[[1]]}",
+            "help": "Called once after a mouse button has been pressed and then released",
+            "sockets": [
+                {
+                    "name": "mouse clicked"
+                }
+            ]
+        },
+        {
+            "blocktype": "eventhandler",
+            "id": "1c4813ra-4v96-45ds-ee82-6e6372048340",
+            "script": "void mouseDragged(){[[1]]}",
+            "help": "Called once every time the mouse moves and a mouse button is pressed",
+            "sockets": [
+                {
+                    "name": "mouse dragged"
+                }
+            ]
+        },
+        {
+            "blocktype": "eventhandler",
+            "id": "1248334a-4v56-453s-ee82-4e654203e32a",
+            "script": "void mouseMoved(){[[1]]}",
+            "help": "Called every time the mouse moves and a mouse button is not pressed",
+            "sockets": [
+                {
+                    "name": "mouse moved"
+                }
+            ]
+        },
+        {
+            "blocktype": "eventhandler",
+            "id": "1244384a-4v86-473s-e582-34135207e38a",
+            "script": "void mouseOut(){[[1]]}",
+            "help": "Called when the mouse pointer leaves a sketch",
+            "sockets": [
+                {
+                    "name": "mouse out"
+                }
+            ]
+        },
+        {
+            "blocktype": "eventhandler",
+            "id": "1244384a-4v86-473s-e582-0e939e44s34x",
+            "script": "void mouseOver(){[[1]]}",
+            "help": "Called when the mouse pointer moves over the sketch",
+            "sockets": [
+                {
+                    "name": "mouse over"
+                }
+            ]
+        },
+        {
+            "blocktype": "eventhandler",
+            "id": "1244384a-4v86-473s-e582-t9r62ei934a",
+            "script": "void mousePressed(){[[1]]}",
+            "help": "Called once after every time a mouse button is pressed",
+            "sockets": [
+                {
+                    "name": "mouse pressed"
+                }
+            ]
+        },
+        {
+            "blocktype": "eventhandler",
+            "id": "1244384a-4v86-473s-e582-2e2634id39a",
+            "script": "void mouseReleased(){[[1]]}",
+            "help": "Called every time a mouse button is released",
+            "sockets": [
+                {
+                    "name": "mouse released"
+                }
+            ]
+        },
+        {
+            "blocktype": "expression",
+            "id": "01124271-6dc0-4a82-81cc-4swb3a8v39e7",
+            "script": "key",
+            "help": "Contains the value of the most recently pressed key on the keyboard",
+            "sockets": [
+                {
+                    "name": "key"
+                }
+            ]
+        },
+        {
+            "blocktype": "expression",
+            "id": "81926274-63cn-4d82-e1cc-4s533a8v39e7",
+            "script": "keyCode",
+            "help": "Used to detect special keys ",
+            "sockets": [
+                {
+                    "name": "key code"
+                }
+            ]
+        },
+        {
+            "blocktype": "expression",
+            "id": "8192ib74-63an-4de2-e1gc-4m5b3l8vcpe0",
+            "script": "keyPressed",
+            "help": "True if any key is pressed and false if no keys are pressed",
+            "sockets": [
+                {
+                    "name": "key pressed"
+                }
+            ]
+        },
+        {
+            "blocktype": "eventhandler",
+            "id": "1j4538ja-4vf6-473s-er82-2r2f31ids9a",
+            "script": "void keyPressed(){[[1]]}",
+            "help": "Called once every time a key is pressed",
+            "sockets": [
+                {
+                    "name": "key pressed"
+                }
+            ]
+        },
+        {
+            "blocktype": "eventhandler",
+            "id": "1s45h8ja-4vf6-473s-er82-9rkf3pidsgi",
+            "script": "void keyReleased(){[[1]]}",
+            "help": "Called once every time a key is released",
+            "sockets": [
+                {
+                    "name": "key released"
+                }
+            ]
+        },
+        {
+            "blocktype": "eventhandler",
+            "id": "1s45h8ja-4vf6-473s-er82-2r2fd5igsg9p",
+            "script": "void keyTyped(){[[1]]}",
+            "help": "Called once every time a key is pressed",
+            "sockets": [
+                {
+                    "name": "key typed"
+                }
+            ]
+        },
+    ]
+}
+
+);
+/*end languages/processingjs/input.json*/
+
+/*begin languages/processingjs/colors.json*/
+wb.menu({
+    "name": "Colors",
+    "blocks": [
+        {
+            "blocktype": "expression",
+            "id": "da9a266b-8ec0-4b97-bd79-b8pc0s4996f",
             "type": "color",
             "script": "color(random(0,255), random(0,255), random(0,255))",
             "help": "Returns a random RBG color",
@@ -4556,25 +5130,40 @@ wb.menu({
         },
         {
             "blocktype": "step",
-            "id": "01543271-6dc0-4a82-81cc-4c50d812b978",
-            "script": "fill(color({{1}}));",
-            "help": "Set fill color",
+            "id": "01123271-3dc0-6a82-01cc-mc50dlwcb9e7",
+            "script": "background(color({{1}}));",
+            "help": "Set background color",
             "sockets": [
                 {
-                    "name": "fill color",
+                    "name": "background color",
                     "type": "color",
+                    "value": "#0000000",
                 }
             ]
         },
         {
             "blocktype": "step",
-            "id": "01983271-6dc0-wa82-81cc-4c50d8ecb9e7",
+            "id": "21543271-6dc0-4a82-818c-4556d712b90",
+            "script": "fill(color({{1}}));",
+            "help": "Sets the color used to fill shapes",
+            "sockets": [
+                {
+                    "name": "fill color",
+                    "type": "color",
+                    "value": "#0000000",
+                }
+            ]
+        },
+        {
+            "blocktype": "step",
+            "id": "01983271-6dc0-wa82-81cc-4c50d88cb0e",
             "script": "stroke(color({{1}}));",
-            "help": "Set stroke color",
+            "help": "Sets the color used to draw lines and borders around shapes",
             "sockets": [
                 {
                     "name": "stroke color",
                     "type": "color",
+                    "value": "#0000000",
                 }
             ]
         },
@@ -4585,7 +5174,7 @@ wb.menu({
             "help": "Disables filling geometry",
             "sockets": [
                 {
-                    "name": "noFill##",
+                    "name": "noFill",
                 }
             ]
         },
@@ -4596,7 +5185,7 @@ wb.menu({
             "help": "Disables drawing the stroke (outline)",
             "sockets": [
                 {
-                    "name": "noStroke##",
+                    "name": "noStroke",
                 }
             ]
         },
@@ -4624,507 +5213,6 @@ wb.menu({
 
 );
 /*end languages/processingjs/colors.json*/
-
-/*begin languages/processingjs/input.json*/
-wb.menu({
-    "name": "Input",
-    "blocks": [
-        {
-            "blocktype": "expression",
-            "id": "01124271-6dc0-4a82-81cc-4s50388c3907",
-            "script": "mouseButton",
-            "help": "Tracks if the mouse button is pressed and which button is pressed",
-            "sockets": [
-                {
-                    "name": "mouse button"
-                }
-            ]
-        },
-        {
-            "blocktype": "expression",
-            "id": "01124271-6dc0-4a82-81cc-4350338c3307",
-            "script": "mousePressed",
-            "help": "Variable storing if a mouse button is pressed",
-            "sockets": [
-                {
-                    "name": "mousePressed"
-                }
-            ]
-        },
-        {
-            "blocktype": "expression",
-            "id": "01124271-6dc0-4a82-81cc-4s50388c3907",
-            "script": "mouseX",
-            "help": "Contains the current horizontal coordinate of the mouse",
-            "sockets": [
-                {
-                    "name": "mouseX"
-                }
-            ]
-        },
-        {
-            "blocktype": "expression",
-            "id": "01124271-6dc0-4a82-81cc-4757378c3907",
-            "script": "mouseY",
-            "help": "Contains the current vertical coordinate of the mouse",
-            "sockets": [
-                {
-                    "name": "mouseY"
-                }
-            ]
-        },
-        {
-            "blocktype": "expression",
-            "id": "01124271-6dc0-4a82-81cc-4s5938893997",
-            "script": "pmouseX",
-            "help": "Contains the previous horizontal coordinate of the mouse",
-            "sockets": [
-                {
-                    "name": "pmouseX"
-                }
-            ]
-        },
-        {
-            "blocktype": "expression",
-            "id": "01124271-6dc0-4a82-81cc-9s50358c3507",
-            "script": "pmouseY",
-            "help": "Contains the previous vertical coordinate of the mouse",
-            "sockets": [
-                {
-                    "name": "pmouseY"
-                }
-            ]
-        },
-        {
-            "blocktype": "eventhandler",
-            "id": "1c4813ra-4v96-45ds-ee82-3e132200e3ca",
-            "script": "void mouseClicked(){[[1]]}",
-            "help": "Called once after a mouse button has been pressed and then released",
-            "sockets": [
-                {
-                    "name": "mouse clicked"
-                }
-            ]
-        },
-        {
-            "blocktype": "eventhandler",
-            "id": "1c4813ra-4v96-45ds-ee82-4e634204e34a",
-            "script": "void mouseDragged(){[[1]]}",
-            "help": "Called once every time the mouse moves and a mouse button is pressed",
-            "sockets": [
-                {
-                    "name": "mouse dragged"
-                }
-            ]
-        },
-        {
-            "blocktype": "eventhandler",
-            "id": "1248334a-4v56-453s-ee82-4e634204e34a",
-            "script": "void mouseMoved(){[[1]]}",
-            "help": "Called every time the mouse moves and a mouse button is not pressed",
-            "sockets": [
-                {
-                    "name": "mouse moved"
-                }
-            ]
-        },
-        {
-            "blocktype": "eventhandler",
-            "id": "1244384a-4v86-473s-e582-3e134204e34a",
-            "script": "void mouseOut(){[[1]]}",
-            "help": "Called when the mouse pointer leaves a sketch",
-            "sockets": [
-                {
-                    "name": "mouse out"
-                }
-            ]
-        },
-        {
-            "blocktype": "eventhandler",
-            "id": "1244384a-4v86-473s-e582-0e939244334a",
-            "script": "void mouseOver(){[[1]]}",
-            "help": "Called when the mouse pointer moves over the sketch",
-            "sockets": [
-                {
-                    "name": "mouse over"
-                }
-            ]
-        },
-        {
-            "blocktype": "eventhandler",
-            "id": "1244384a-4v86-473s-e582-391624i934a",
-            "script": "void mousePressed(){[[1]]}",
-            "help": "Called once after every time a mouse button is pressed",
-            "sockets": [
-                {
-                    "name": "mouse pressed"
-                }
-            ]
-        },
-        {
-            "blocktype": "eventhandler",
-            "id": "1244384a-4v86-473s-e582-292634id39a",
-            "script": "void mouseReleased(){[[1]]}",
-            "help": "Called every time a mouse button is released",
-            "sockets": [
-                {
-                    "name": "mouse released"
-                }
-            ]
-        },
-        {
-            "blocktype": "expression",
-            "id": "01124271-6dc0-4a82-81cc-4s5b3a8v39e7",
-            "script": "key",
-            "help": "Contains the value of the most recently pressed key on the keyboard",
-            "sockets": [
-                {
-                    "name": "key"
-                }
-            ]
-        },
-        {
-            "blocktype": "expression",
-            "id": "81926274-63cn-4d82-e1cc-4s5b3a8v39e7",
-            "script": "keyCode",
-            "help": "Used to detect special keys ",
-            "sockets": [
-                {
-                    "name": "key code"
-                }
-            ]
-        },
-        {
-            "blocktype": "expression",
-            "id": "8192ib74-63an-4de2-e1dc-4s5b3e8vc9e7",
-            "script": "keyPressed",
-            "help": "True if any key is pressed and false if no keys are pressed",
-            "sockets": [
-                {
-                    "name": "keyPressed"
-                }
-            ]
-        },
-        {
-            "blocktype": "eventhandler",
-            "id": "1j4538ja-4vf6-473s-er82-2r2f31ids9a",
-            "script": "void keyPressed(){[[1]]}",
-            "help": "Called once every time a key is pressed",
-            "sockets": [
-                {
-                    "name": "key pressed"
-                }
-            ]
-        },
-        {
-            "blocktype": "eventhandler",
-            "id": "1s45h8ja-4vf6-473s-er82-2r2f35idsg9a",
-            "script": "void keyReleased(){[[1]]}",
-            "help": "Called once every time a key is released",
-            "sockets": [
-                {
-                    "name": "key released"
-                }
-            ]
-        },
-        {
-            "blocktype": "eventhandler",
-            "id": "1s45h8ja-4vf6-473s-er82-2r2f35idsg9a",
-            "script": "void keyTyped(){[[1]]}",
-            "help": "Called once every time a key is pressed",
-            "sockets": [
-                {
-                    "name": "key typed"
-                }
-            ]
-        },
-    ]
-}
-
-);
-/*end languages/processingjs/input.json*/
-
-/*begin languages/processingjs/controls.json*/
-wb.menu({
-    "name": "Control",
-    "blocks": [
-        {
-            "blocktype": "step",
-            "id": "079b2b89-41c2-4d00-8n21-rcf62146980",
-            "script": "int variable## = {{1}};",
-            "locals": [
-                {
-                    "blocktype": "expression",
-                    "script": "variable##",
-                    "type": "number",
-                    "sockets": [
-                        {
-                            "name": "variable##"
-                        }
-                    ]
-                }
-            ],
-            "help": "Create a integer variable reference to re-use",
-            "sockets": [
-                {
-                    "name": "int variable value",
-                    "type": "number",
-                    "value": 0
-                }
-            ]
-        },
-        {
-            "blocktype": "step",
-            "id": "079b2b89-41c2-4d00-8e21-bcd62f4bm80",
-            "script": "char variable## = {{1}};",
-            "locals": [
-                {
-                    "blocktype": "expression",
-                    "script": "variable##",
-                    "type": "string",
-                    "sockets": [
-                        {
-                            "name": "variable##"
-                        }
-                    ]
-                }
-            ],
-            "help": "Create a char variable reference to re-use",
-            "sockets": [
-                {
-                    "name": "char variable value",
-                    "type": "string",
-                    "value": "string"
-                }
-            ]
-        },
-        {
-            "blocktype": "expression",
-            "id": "e3a5ea20-3ca9-42cf-ac02-77ff06836a7e",
-            "type": "boolean",
-            "script": "({{1}} == {{2}})",
-            "help": "Determines if two values are equivalent",
-            "sockets": [
-                {
-                    "name": "",
-                    "type": "number",
-                    "value": "0"
-                },
-                {
-                    "name": "==",
-                    "type": "number",
-                    "value": "0"
-                }
-            ]
-        },
-        {
-            "blocktype": "expression",
-            "id": "d753757b-a7d4-4d84-99f1-cb9b8c7e62da",
-            "type": "boolean",
-            "script": "({{1}} < {{2}})",
-            "help": "Tests if the value on the left is smaller than the value on the right",
-            "sockets": [
-                {
-                    "name": "",
-                    "type": "number",
-                    "value": "0"
-                },
-                {
-                    "name": "<",
-                    "type": "number",
-                    "value": "0"
-                }
-            ]
-        },
-        {
-            "blocktype": "expression",
-            "id": "d753757b-a7d4-4d84-99f1-cb9b8c7e62da",
-            "type": "boolean",
-            "script": "({{1}} <= {{2}})",
-            "help": "Tests if the value on the left is less than the value on the right or if the values are equivalent",
-            "sockets": [
-                {
-                    "name": "",
-                    "type": "number",
-                    "value": "0"
-                },
-                {
-                    "name": "<=",
-                    "type": "number",
-                    "value": "0"
-                }
-            ]
-        },        {
-            "blocktype": "expression",
-            "id": "5a1f5f68-d74b-4154-b376-6a0200f585ed",
-            "type": "boolean",
-            "script": "({{1}} > {{2}})",
-            "help": "Tests if the value on the left is larger than the value on the right",
-            "sockets": [
-                {
-                    "name": "",
-                    "type": "number",
-                    "value": "0"
-                },
-                {
-                    "name": ">",
-                    "type": "number",
-                    "value": "0"
-                }
-            ]
-        },
-        {
-            "blocktype": "expression",
-            "id": "5a1f5f58-d76b-4184-b376-5a3202f585ed",
-            "type": "boolean",
-            "script": "({{1}} >= {{2}})",
-            "help": "Tests if the value on the left is larger than the value on the right or if the values are equivalent",
-            "sockets": [
-                {
-                    "name": "",
-                    "type": "number",
-                    "value": "0"
-                },
-                {
-                    "name": ">=",
-                    "type": "number",
-                    "value": "0"
-                }
-            ]
-        },
-        {
-            "blocktype": "expression",
-            "id": "5a1f5f58-d76b-4184-b376-098202f4854d",
-            "type": "boolean",
-            "script": "({{1}} != {{2}})",
-            "help": "Determines if one expression is not equivalent to another",
-            "sockets": [
-                {
-                    "name": "",
-                    "type": "number",
-                    "value": "0"
-                },
-                {
-                    "name": "!=",
-                    "type": "number",
-                    "value": "0"
-                }
-            ]
-        },
-        {
-            "blocktype": "context",
-            "id": "20ba3e08-74c0-42de-b6f2-938443e63ce0",
-            "script": "if({{1}}){[[2]]}",
-            "help": "Allows the program to make a decision about which code to execute",
-            "sockets": [
-                {
-                    "name": "if",
-                    "type": "any",
-                    "value": null
-                },
-            ]
-        },
-        {
-            "blocktype": "context",
-            "id": "l0k23e48-74cp-420e-b6m2-n3794d6lce0",
-            "script": "else {[[2]]}",
-            "help": "It specifies a block of code to execute when the expression in if() is false",
-            "sockets": [
-                {
-                    "name": "else",
-                },
-            ]
-        },
-        {
-            "blocktype": "context",
-            "id": "l0k23e48-74n0-42ge-b61h-c3e456x3ce0",
-            "script": "else if({{1}}){[[2]]}",
-            "help": "It specifies a block of code to execute when the expression in if() is false",
-            "sockets": [
-                {
-                    "name": "else if",
-                    "type": "any",
-                    "value": null
-                },
-            ]
-        },
-        {
-            "blocktype": "context",
-            "id": "1cf8132a-4996-45db-b482-4e3shre13c1",
-            "script": "for( {{1}}; {{2}}; {{3}}) { [[4]] }",
-            "help": "Controls a sequence of repetitions",
-            "sockets": [
-                {
-                    "name": "for init",
-                    "type": "any",
-                    "value": null
-                },
-                {
-                    "name": "test",
-                    "type": "any",
-                    "value": null
-                },
-                {
-                    "name": "update",
-                    "type": "any",
-                    "value": null
-                }
-            ]
-        },
-        {
-            "blocktype": "context",
-            "id": "1cf8132a-49y6-455b-b432-3e1sh2e13c1",
-            "script": "while( {{1}} ) { [[2]] }",
-            "help": "Controls a sequence of repetitions",
-            "sockets": [
-                {
-                    "name": "while ",
-                    "type": "any",
-                    "value": null
-                },
-            ]
-        },
-        {
-            "blocktype": "step",
-            "id": "b4036693-8645-4852-a4de-9e96565f9aec",
-            "script": "{{1}} = {{2}};",
-            "help": "first argument must be a variable",
-            "sockets": [
-                {
-                    "name": "set variable",
-                    "type": "any",
-                    "value": null
-                },
-                {
-                    "name": "to",
-                    "type": "any",
-                    "value": null
-                }
-            ]
-        },
-        {
-            "blocktype": "step",
-            "id": "9AED48C9-A90B-49FB-9C1A-FD632F0388F5",
-            "script": "{{1}} += {{2}};",
-            "help": "first argument must be a variable",
-            "sockets": [
-                {
-                    "name": "increment variable",
-                    "type": "any",
-                    "value": null
-                },
-                {
-                    "name": "by",
-                    "type": "any",
-                    "value": 1
-                }
-            ]
-        },
-    ]
-}
-
-);
-/*end languages/processingjs/controls.json*/
 
 /*begin languages/processingjs/math.json*/
 wb.menu({
@@ -5246,7 +5334,7 @@ wb.menu({
         },
         {
             "blocktype": "expression",
-            "id": "a2647515-2f14-4d0f-84b1-a6e288823630",
+            "id": "a2647515-2f14-4d0f-84b1-p0e288823630",
             "type": "number",
             "script": "({{1}} % {{2}})",
             "help": "Calculates the remainer when one number is divided by another",
@@ -5271,12 +5359,12 @@ wb.menu({
             "help": "Generates random numbers",
             "sockets": [
                 {
-                    "name": "random low",
+                    "name": "random",
                     "type": "number",
                     "value": "0"
                 },
                 {
-                    "name": "high",
+                    "name": "",
                     "type": "number",
                     "value": "10"
                 }
@@ -5323,7 +5411,7 @@ wb.menu({
                     "value": "10"
                 },
                 {
-                    "name": "to the power of",
+                    "name": "^",
                     "type": "number",
                     "value": "2"
                 }
@@ -5351,7 +5439,7 @@ wb.menu({
             "help": "Calculates the closest int value that is less than or equal to the value of the parameter",
             "sockets": [
                 {
-                    "name": "floor of",
+                    "name": "floor",
                     "type": "number",
                     "value": "10"
                 }
@@ -5430,7 +5518,7 @@ wb.menu({
             "help": "The inverse of cos(), returns the arc cosine of a value",
             "sockets": [
                 {
-                    "name": "arccosine degrees of",
+                    "name": "arccosine degrees",
                     "type": "number",
                     "value": "10"
                 }
@@ -5444,7 +5532,7 @@ wb.menu({
             "help": "The inverse of sin(), returns the arc sine of a value",
             "sockets": [
                 {
-                    "name": "arcsine degrees of",
+                    "name": "arcsine degrees",
                     "type": "number",
                     "value": "10"
                 }
@@ -5452,13 +5540,13 @@ wb.menu({
         },
         {
             "blocktype": "expression",
-            "id": "1f5ee069-148e-4e4a-a514-5179af86be15",
+            "id": "0p5eeo69-148e-4e4a-a514-5179af86b615",
             "type": "number",
             "script": "degrees(atan({{1}}))",
             "help": "The inverse of tan(), returns the arc tangent of a value",
             "sockets": [
                 {
-                    "name": "arctangent degrees of",
+                    "name": "arctangent degrees",
                     "type": "number",
                     "value": "10"
                 }
@@ -5466,7 +5554,7 @@ wb.menu({
         },
         {
             "blocktype": "expression",
-            "id": "1f5ee069-148e-4e4a-a514-5f79a8874e15",
+            "id": "1f53e062-118e-4e4a-a514-5f79a8874e15",
             "type": "number",
             "script": "degrees({{1}})",
             "help": "Converts a radian measurement to its corresponding value in degrees",
@@ -5480,7 +5568,7 @@ wb.menu({
         },
         {
             "blocktype": "expression",
-            "id": "1f5ee069-148e-4e4a-a514-179a886keqw",
+            "id": "1f5ee064-148e-4e4a-a514-179a886keqw",
             "type": "number",
             "script": "radians({{1}})",
             "help": "Converts a degree measurement to its corresponding value in radians",

@@ -2,20 +2,8 @@
     "name": "Colors",
     "blocks": [
         {
-            "blocktype": "step",
-            "id": "01123271-6dc0-4a82-81cc-4c50d8wcb9e7",
-            "script": "background(color({{1}}));",
-            "help": "Set background color",
-            "sockets": [
-                {
-                    "name": "background color",
-                    "type": "color",
-                }
-            ]
-        },
-        {
             "blocktype": "expression",
-            "id": "da9a266b-8ec0-4b97-bd79-b18dc7d4596f",
+            "id": "da9a266b-8ec0-4b97-bd79-b8pc0s4996f",
             "type": "color",
             "script": "color(random(0,255), random(0,255), random(0,255))",
             "help": "Returns a random RBG color",
@@ -27,25 +15,40 @@
         },
         {
             "blocktype": "step",
-            "id": "01543271-6dc0-4a82-81cc-4c50d812b978",
-            "script": "fill(color({{1}}));",
-            "help": "Set fill color",
+            "id": "01123271-3dc0-6a82-01cc-mc50dlwcb9e7",
+            "script": "background(color({{1}}));",
+            "help": "Set background color",
             "sockets": [
                 {
-                    "name": "fill color",
+                    "name": "background color",
                     "type": "color",
+                    "value": "#0000000",
                 }
             ]
         },
         {
             "blocktype": "step",
-            "id": "01983271-6dc0-wa82-81cc-4c50d8ecb9e7",
+            "id": "21543271-6dc0-4a82-818c-4556d712b90",
+            "script": "fill(color({{1}}));",
+            "help": "Sets the color used to fill shapes",
+            "sockets": [
+                {
+                    "name": "fill color",
+                    "type": "color",
+                    "value": "#0000000",
+                }
+            ]
+        },
+        {
+            "blocktype": "step",
+            "id": "01983271-6dc0-wa82-81cc-4c50d88cb0e",
             "script": "stroke(color({{1}}));",
-            "help": "Set stroke color",
+            "help": "Sets the color used to draw lines and borders around shapes",
             "sockets": [
                 {
                     "name": "stroke color",
                     "type": "color",
+                    "value": "#0000000",
                 }
             ]
         },
@@ -56,7 +59,7 @@
             "help": "Disables filling geometry",
             "sockets": [
                 {
-                    "name": "noFill##",
+                    "name": "noFill",
                 }
             ]
         },
@@ -67,7 +70,7 @@
             "help": "Disables drawing the stroke (outline)",
             "sockets": [
                 {
-                    "name": "noStroke##",
+                    "name": "noStroke",
                 }
             ]
         },
