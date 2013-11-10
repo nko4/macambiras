@@ -27,6 +27,7 @@
             "blocktype": "expression",
             "id": "01124271-6dc0-4a82-81cc-4050308c3907",
             "script": "mouseX",
+            "type": "number",
             "help": "Contains the current horizontal coordinate of the mouse",
             "sockets": [
                 {
@@ -38,6 +39,7 @@
             "blocktype": "expression",
             "id": "01124271-6dc0-4a82-81cc-47h737lc39p7",
             "script": "mouseY",
+            "type": "number",
             "help": "Contains the current vertical coordinate of the mouse",
             "sockets": [
                 {
@@ -49,6 +51,7 @@
             "blocktype": "expression",
             "id": "11134251-6dc0-4a82-81cc-4s5938893997",
             "script": "pmouseX",
+            "type": "number",
             "help": "Contains the previous horizontal coordinate of the mouse",
             "sockets": [
                 {
@@ -60,6 +63,7 @@
             "blocktype": "expression",
             "id": "21124231-64c0-4a82-81cc-9s50358c3508",
             "script": "pmouseY",
+            "type": "number",
             "help": "Contains the previous vertical coordinate of the mouse",
             "sockets": [
                 {

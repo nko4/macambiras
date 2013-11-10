@@ -32,12 +32,12 @@
                 {
                     "name": "size X",
                     "type": "number",
-                    "value": "400"
+                    "value": "800"
                 },
                 {
                     "name": "Y",
                     "type": "number",
-                    "value": "600"
+                    "value": "500"
                 }
             ]
         },

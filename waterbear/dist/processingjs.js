@@ -4217,12 +4217,12 @@ wb.menu({
                 {
                     "name": "size X",
                     "type": "number",
-                    "value": "400"
+                    "value": "800"
                 },
                 {
                     "name": "Y",
                     "type": "number",
-                    "value": "600"
+                    "value": "500"
                 }
             ]
         },
@@ -4384,7 +4384,7 @@ wb.menu({
             "blocktype": "step",
             "id": "b4036693-8645-4852-a4de-9e96565f92ec",
             "script": "{{1}} = {{2}};",
-            "help": "first argument must be a variable",
+            "help": "First argument must be a variable",
             "sockets": [
                 {
                     "name": "set variable",
@@ -4402,7 +4402,7 @@ wb.menu({
             "blocktype": "step",
             "id": "9AED48C9-A90B-49FB-9C1A-FD632F0313F5",
             "script": "{{1}} += {{2}};",
-            "help": "first argument must be a variable",
+            "help": "First argument must be a variable",
             "sockets": [
                 {
                     "name": "increment variable",
@@ -4414,6 +4414,98 @@ wb.menu({
                     "type": "any",
                     "value": 1
                 }
+            ]
+        },
+        {
+            "blocktype": "expression",
+            "id": "9AED48C9-A90B-49FB-9C1b-3r63eFs313F",
+            "script": "{{1}} += {{2}};",
+            "help": "First argument must be a variable",
+            "sockets": [
+                {
+                    "name": "update variable",
+                    "type": "any",
+                    "value": null
+                },
+                {
+                    "name": "by",
+                    "type": "any",
+                    "value": 1
+                }
+            ]
+        },
+        {
+            "blocktype": "context",
+            "id": "20ba3e08-74c0-42de-b6f2-938409e63ce0",
+            "script": "if({{1}}){[[2]]}",
+            "help": "Allows the program to make a decision about which code to execute",
+            "sockets": [
+                {
+                    "name": "if",
+                    "type": "any",
+                    "value": null
+                },
+            ]
+        },
+        {
+            "blocktype": "context",
+            "id": "l0k23e48-74cp-420e-b6m2-n379po6lce0",
+            "script": "else {[[2]]}",
+            "help": "It specifies a block of code to execute when the expression in if() is false",
+            "sockets": [
+                {
+                    "name": "else",
+                },
+            ]
+        },
+        {
+            "blocktype": "context",
+            "id": "l0k23e48-74n0-42ge-b61h-cjk456x3ce0",
+            "script": "else if({{1}}){[[2]]}",
+            "help": "It specifies a block of code to execute when the expression in if() is false",
+            "sockets": [
+                {
+                    "name": "else if",
+                    "type": "any",
+                    "value": null
+                },
+            ]
+        },
+
+        {
+            "blocktype": "context",
+            "id": "1cf8132a-4996-45db-b482-4lkshre13c1",
+            "script": "for( {{1}}; {{2}}; {{3}}) { [[4]] }",
+            "help": "Controls a sequence of repetitions",
+            "sockets": [
+                {
+                    "name": "for init",
+                    "type": "any",
+                    "value": null
+                },
+                {
+                    "name": "test",
+                    "type": "any",
+                    "value": null
+                },
+                {
+                    "name": "update",
+                    "type": "any",
+                    "value": null
+                }
+            ]
+        },
+        {
+            "blocktype": "context",
+            "id": "1cf8132a-49y6-455b-b432-3posh2e13c1",
+            "script": "while( {{1}} ) { [[2]] }",
+            "help": "Controls a sequence of repetitions",
+            "sockets": [
+                {
+                    "name": "while",
+                    "type": "any",
+                    "value": null
+                },
             ]
         },
         {
@@ -4529,79 +4621,6 @@ wb.menu({
                 }
             ]
         },
-        {
-            "blocktype": "context",
-            "id": "20ba3e08-74c0-42de-b6f2-938409e63ce0",
-            "script": "if({{1}}){[[2]]}",
-            "help": "Allows the program to make a decision about which code to execute",
-            "sockets": [
-                {
-                    "name": "if",
-                    "type": "any",
-                    "value": null
-                },
-            ]
-        },
-        {
-            "blocktype": "context",
-            "id": "l0k23e48-74cp-420e-b6m2-n379po6lce0",
-            "script": "else {[[2]]}",
-            "help": "It specifies a block of code to execute when the expression in if() is false",
-            "sockets": [
-                {
-                    "name": "else",
-                },
-            ]
-        },
-        {
-            "blocktype": "context",
-            "id": "l0k23e48-74n0-42ge-b61h-cjk456x3ce0",
-            "script": "else if({{1}}){[[2]]}",
-            "help": "It specifies a block of code to execute when the expression in if() is false",
-            "sockets": [
-                {
-                    "name": "else if",
-                    "type": "any",
-                    "value": null
-                },
-            ]
-        },
-        {
-            "blocktype": "context",
-            "id": "1cf8132a-4996-45db-b482-4lkshre13c1",
-            "script": "for( {{1}}; {{2}}; {{3}}) { [[4]] }",
-            "help": "Controls a sequence of repetitions",
-            "sockets": [
-                {
-                    "name": "for init",
-                    "type": "any",
-                    "value": null
-                },
-                {
-                    "name": "test",
-                    "type": "any",
-                    "value": null
-                },
-                {
-                    "name": "update",
-                    "type": "any",
-                    "value": null
-                }
-            ]
-        },
-        {
-            "blocktype": "context",
-            "id": "1cf8132a-49y6-455b-b432-3posh2e13c1",
-            "script": "while( {{1}} ) { [[2]] }",
-            "help": "Controls a sequence of repetitions",
-            "sockets": [
-                {
-                    "name": "while",
-                    "type": "any",
-                    "value": null
-                },
-            ]
-        },
     ]
 }
 
@@ -4612,6 +4631,19 @@ wb.menu({
 wb.menu({
     "name": "Shape",
     "blocks": [
+        {
+            "blocktype": "step",
+            "id": "71eb32s1-6cc0-4322-82sc-mh50di3jns2",
+            "script": "strokeWeight({{1}});",
+            "help": "Draws a point, a coordinate in space at the dimension of one pixel",
+            "sockets": [
+                {
+                    "name": "stroke weight",
+                    "type": "number",
+                    "value": "12"
+                }
+            ]
+        },
         {
             "blocktype": "step",
             "id": "71eb32s1-6cc0-4322-82sc-4c50779c57e7",
@@ -4717,7 +4749,7 @@ wb.menu({
         },
         {
             "blocktype": "step",
-            "id": "018e83781-2c40-4162-824c-4c5277ac19e7",
+            "id": "018e83781-2c40-4162-824c-09ijek3os91",
             "script": "triangle({{1}}, {{2}}, {{3}}, {{4}}, {{5}}, {{6}});",
             "help": "A triangle is a plane created by connecting three points",
             "sockets": [
@@ -4923,6 +4955,7 @@ wb.menu({
             "blocktype": "expression",
             "id": "01124271-6dc0-4a82-81cc-4050308c3907",
             "script": "mouseX",
+            "type": "number",
             "help": "Contains the current horizontal coordinate of the mouse",
             "sockets": [
                 {
@@ -4934,6 +4967,7 @@ wb.menu({
             "blocktype": "expression",
             "id": "01124271-6dc0-4a82-81cc-47h737lc39p7",
             "script": "mouseY",
+            "type": "number",
             "help": "Contains the current vertical coordinate of the mouse",
             "sockets": [
                 {
@@ -4945,6 +4979,7 @@ wb.menu({
             "blocktype": "expression",
             "id": "11134251-6dc0-4a82-81cc-4s5938893997",
             "script": "pmouseX",
+            "type": "number",
             "help": "Contains the previous horizontal coordinate of the mouse",
             "sockets": [
                 {
@@ -4956,6 +4991,7 @@ wb.menu({
             "blocktype": "expression",
             "id": "21124231-64c0-4a82-81cc-9s50358c3508",
             "script": "pmouseY",
+            "type": "number",
             "help": "Contains the previous vertical coordinate of the mouse",
             "sockets": [
                 {
@@ -5120,7 +5156,7 @@ wb.menu({
             "blocktype": "expression",
             "id": "da9a266b-8ec0-4b97-bd79-b8pc0s4996f",
             "type": "color",
-            "script": "color(random(0,255), random(0,255), random(0,255))",
+            "script": "color(random(0,255), random(0,255), random(0,255), random(0,255))",
             "help": "Returns a random RBG color",
             "sockets": [
                 {
@@ -5608,6 +5644,68 @@ wb.menu({
 }
 );
 /*end languages/processingjs/math.json*/
+
+/*begin languages/processingjs/transform.json*/
+wb.menu({
+    "name": "Transform",
+    "blocks": [
+        {
+            "blocktype": "step",
+            "id": "01124271-6dc0-4j82-81kc-098ehudtcb1",
+            "script": "pushMatrix();",
+            "help": "Pushes the current transformation matrix onto the matrix stack",
+            "sockets": [
+                {
+                    "name": "push matrix"
+                }
+            ]
+        },
+        {
+            "blocktype": "step",
+            "id": "01124271-6dc0-4j82-81kc-5637dy738ue",
+            "script": "popMatrix();",
+            "help": "Pops the current transformation matrix off the matrix stack",
+            "sockets": [
+                {
+                    "name": "pop matrix"
+                }
+            ]
+        },
+        {
+            "blocktype": "step",
+            "id": "916c79df-40f1-4280-a0p3-6d0df954d87e",
+            "script": "rotate({{1}});",
+            "help": "Rotates an object the amount specified by the angle parameter",
+            "sockets": [
+                {
+                    "name": "rotate",
+                    "type": "number",
+                    "value": 30
+                },
+            ]
+        },
+        {
+            "blocktype": "step",
+            "id": "916c79df-40f1-4280-a0p3-a08dh2ikzps",
+            "script": "translate({{1}}, {{2}});",
+            "help": "Specifies an amount to displace objects within the display window",
+            "sockets": [
+                {
+                    "name": "translate x",
+                    "type": "number",
+                    "value": 30
+                },
+                {
+                    "name": "y",
+                    "type": "number",
+                    "value": 20
+                },
+            ]
+        },
+    ]
+}
+);
+/*end languages/processingjs/transform.json*/
 
 /*begin launch.js*/
 // Minimal script to run on load

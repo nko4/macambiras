@@ -28,8 +28,8 @@
 }
 
 .math, .math .holder{
-    border-color: hsl(195, 65%, 79%);
-    background-color: hsl(195, 62%, 89%);
+    border-color: hsl(185, 60%, 79%);
+    background-color: hsl(170, 55%, 89%);
 }
 
 .points, .points .holder{
@@ -42,7 +42,7 @@
     background-color: hsl(25, 100%, 83%);
 }
 
-.x, .x .holder{
+.transform, .transform .holder{
     border-color: hsl(240, 65%, 83%);
     background-color: hsl(240, 65%, 93%);
 }

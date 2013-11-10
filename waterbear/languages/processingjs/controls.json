@@ -55,7 +55,7 @@
             "blocktype": "step",
             "id": "b4036693-8645-4852-a4de-9e96565f92ec",
             "script": "{{1}} = {{2}};",
-            "help": "first argument must be a variable",
+            "help": "First argument must be a variable",
             "sockets": [
                 {
                     "name": "set variable",
@@ -73,7 +73,7 @@
             "blocktype": "step",
             "id": "9AED48C9-A90B-49FB-9C1A-FD632F0313F5",
             "script": "{{1}} += {{2}};",
-            "help": "first argument must be a variable",
+            "help": "First argument must be a variable",
             "sockets": [
                 {
                     "name": "increment variable",
@@ -85,6 +85,98 @@
                     "type": "any",
                     "value": 1
                 }
+            ]
+        },
+        {
+            "blocktype": "expression",
+            "id": "9AED48C9-A90B-49FB-9C1b-3r63eFs313F",
+            "script": "{{1}} += {{2}};",
+            "help": "First argument must be a variable",
+            "sockets": [
+                {
+                    "name": "update variable",
+                    "type": "any",
+                    "value": null
+                },
+                {
+                    "name": "by",
+                    "type": "any",
+                    "value": 1
+                }
+            ]
+        },
+        {
+            "blocktype": "context",
+            "id": "20ba3e08-74c0-42de-b6f2-938409e63ce0",
+            "script": "if({{1}}){[[2]]}",
+            "help": "Allows the program to make a decision about which code to execute",
+            "sockets": [
+                {
+                    "name": "if",
+                    "type": "any",
+                    "value": null
+                },
+            ]
+        },
+        {
+            "blocktype": "context",
+            "id": "l0k23e48-74cp-420e-b6m2-n379po6lce0",
+            "script": "else {[[2]]}",
+            "help": "It specifies a block of code to execute when the expression in if() is false",
+            "sockets": [
+                {
+                    "name": "else",
+                },
+            ]
+        },
+        {
+            "blocktype": "context",
+            "id": "l0k23e48-74n0-42ge-b61h-cjk456x3ce0",
+            "script": "else if({{1}}){[[2]]}",
+            "help": "It specifies a block of code to execute when the expression in if() is false",
+            "sockets": [
+                {
+                    "name": "else if",
+                    "type": "any",
+                    "value": null
+                },
+            ]
+        },
+
+        {
+            "blocktype": "context",
+            "id": "1cf8132a-4996-45db-b482-4lkshre13c1",
+            "script": "for( {{1}}; {{2}}; {{3}}) { [[4]] }",
+            "help": "Controls a sequence of repetitions",
+            "sockets": [
+                {
+                    "name": "for init",
+                    "type": "any",
+                    "value": null
+                },
+                {
+                    "name": "test",
+                    "type": "any",
+                    "value": null
+                },
+                {
+                    "name": "update",
+                    "type": "any",
+                    "value": null
+                }
+            ]
+        },
+        {
+            "blocktype": "context",
+            "id": "1cf8132a-49y6-455b-b432-3posh2e13c1",
+            "script": "while( {{1}} ) { [[2]] }",
+            "help": "Controls a sequence of repetitions",
+            "sockets": [
+                {
+                    "name": "while",
+                    "type": "any",
+                    "value": null
+                },
             ]
         },
         {
@@ -198,79 +290,6 @@
                     "type": "number",
                     "value": "0"
                 }
-            ]
-        },
-        {
-            "blocktype": "context",
-            "id": "20ba3e08-74c0-42de-b6f2-938409e63ce0",
-            "script": "if({{1}}){[[2]]}",
-            "help": "Allows the program to make a decision about which code to execute",
-            "sockets": [
-                {
-                    "name": "if",
-                    "type": "any",
-                    "value": null
-                },
-            ]
-        },
-        {
-            "blocktype": "context",
-            "id": "l0k23e48-74cp-420e-b6m2-n379po6lce0",
-            "script": "else {[[2]]}",
-            "help": "It specifies a block of code to execute when the expression in if() is false",
-            "sockets": [
-                {
-                    "name": "else",
-                },
-            ]
-        },
-        {
-            "blocktype": "context",
-            "id": "l0k23e48-74n0-42ge-b61h-cjk456x3ce0",
-            "script": "else if({{1}}){[[2]]}",
-            "help": "It specifies a block of code to execute when the expression in if() is false",
-            "sockets": [
-                {
-                    "name": "else if",
-                    "type": "any",
-                    "value": null
-                },
-            ]
-        },
-        {
-            "blocktype": "context",
-            "id": "1cf8132a-4996-45db-b482-4lkshre13c1",
-            "script": "for( {{1}}; {{2}}; {{3}}) { [[4]] }",
-            "help": "Controls a sequence of repetitions",
-            "sockets": [
-                {
-                    "name": "for init",
-                    "type": "any",
-                    "value": null
-                },
-                {
-                    "name": "test",
-                    "type": "any",
-                    "value": null
-                },
-                {
-                    "name": "update",
-                    "type": "any",
-                    "value": null
-                }
-            ]
-        },
-        {
-            "blocktype": "context",
-            "id": "1cf8132a-49y6-455b-b432-3posh2e13c1",
-            "script": "while( {{1}} ) { [[2]] }",
-            "help": "Controls a sequence of repetitions",
-            "sockets": [
-                {
-                    "name": "while",
-                    "type": "any",
-                    "value": null
-                },
             ]
         },
     ]
