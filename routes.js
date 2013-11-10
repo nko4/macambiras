@@ -157,8 +157,10 @@ exports = module.exports = function(app, passport) {
   app.get('/account/settings/facebook/disconnect/', require('./views/account/settings/index').disconnectFacebook);
 
   //sketch
+  app.post('/save', function (req, res) {
+    console.log('foo');
+  });
   app.get('/sketch/:id', require('./views/sketch').read);
-  app.post('/sketch/:id', require('./views/sketch').create);
   
   //route not found
   app.all('*', require('./views/http/index').http404);
