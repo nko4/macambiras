@@ -925,11 +925,12 @@ body.result nav, body.blocks nav {
 
 /*end menu.css*/
 
-/*begin languages/processingjs/processingjs.css*/
-
-/*end languages/processingjs/processingjs.css*/
-
 /*begin languages/processingjs/structure.css*/
+.input, .input .holder{
+    background-color: hsl(296, 65%, 77%);
+    border-color: hsl(296, 65%, 57%);
+}
+
 .structure, .structure .holder{
     border-color: hsl(120, 81%, 49%);
     background-color: hsl(120, 81%, 85%);
@@ -939,57 +940,44 @@ body.result nav, body.blocks nav {
     border-color: hsl(150, 81%, 49%);
     background-color: hsl(150, 81%, 85%);
 }
-/*end languages/processingjs/structure.css*/
-
-/*begin languages/processingjs/environment.css*/
 .environment, .environment .holder{
     border-color: hsl(250, 65%, 79%);
     background-color: hsl(250, 62%, 89%);
 }
 
-
-/*end languages/processingjs/environment.css*/
-
-/*begin languages/processingjs/shapes.css*/
-.shape, .shape .holder{
-    border-color: hsl(25, 100%, 63%);
-    background-color: hsl(25, 100%, 83%);
-}
-
-/*end languages/processingjs/shapes.css*/
-
-/*begin languages/processingjs/colors.css*/
 .colors, .colors .holder{
     border-color: hsl(200,98%,56%);
     background-color: hsl(200,98%,76%);
 }
 
-/*end languages/processingjs/colors.css*/
-
-/*begin languages/processingjs/input.css*/
-.input, .input .holder{
-    background-color: hsl(296, 65%, 77%);
-    border-color: hsl(296, 65%, 57%);
-}
-
-/*end languages/processingjs/input.css*/
-
-/*begin languages/processingjs/controls.css*/
 .control, .control .holder{
     border-color: hsl(75, 90%, 66%);
     background-color: hsl(75, 90%, 76%);
+}
+
+.math, .math .holder{
+    border-color: hsl(195, 65%, 79%);
+    background-color: hsl(195, 62%, 89%);
+}
+
+.points, .points .holder{
+    border-color: hsl(90, 65%, 79%);
+    background-color: hsl(90, 62%, 89%);
+}
+
+.shape, .shape .holder{
+    border-color: hsl(25, 100%, 63%);
+    background-color: hsl(25, 100%, 83%);
+}
+
+.x, .x .holder{
+    border-color: hsl(240, 65%, 83%);
+    background-color: hsl(240, 65%, 93%);
 }
 
 .any, .any .holder{
     border-color: gray;
 }
 
-/*end languages/processingjs/controls.css*/
 
-/*begin languages/processingjs/math.css*/
-.math, .math .holder{
-    border-color: hsl(195, 65%, 79%);
-    background-color: hsl(195, 62%, 89%);
-}
-
-/*end languages/processingjs/math.css*/
+/*end languages/processingjs/structure.css*/
