@@ -1,0 +1,134 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/Users/chs/local/node/bin/npm', 'install' ]
+2 info using npm@1.1.71
+3 info using node@v0.8.2
+4 verbose read json /Users/chs/Desktop/CODE/src/macambiras/package.json
+5 verbose readDependencies using package.json deps
+6 verbose install where, deps [ '/Users/chs/Desktop/CODE/src/macambiras',
+6 verbose install   [ 'nko',
+6 verbose install     'async',
+6 verbose install     'connect-mongo',
+6 verbose install     'emailjs',
+6 verbose install     'express',
+6 verbose install     'findit2',
+6 verbose install     'jade',
+6 verbose install     'jshint',
+6 verbose install     'mongoose',
+6 verbose install     'passport',
+6 verbose install     'passport-local',
+6 verbose install     'passport-oauth',
+6 verbose install     'passport-facebook',
+6 verbose install     'passport-github',
+6 verbose install     'passport-twitter',
+6 verbose install     'recess',
+6 verbose install     'uglify-js',
+6 verbose install     'watchr' ] ]
+7 verbose from cache /Users/chs/Desktop/CODE/src/macambiras/package.json
+8 info preinstall nko4-macambiras@0.0.1
+9 verbose read json /Users/chs/Desktop/CODE/src/macambiras/node_modules/async/package.json
+10 verbose read json /Users/chs/Desktop/CODE/src/macambiras/node_modules/connect-mongo/package.json
+11 verbose read json /Users/chs/Desktop/CODE/src/macambiras/node_modules/emailjs/package.json
+12 verbose read json /Users/chs/Desktop/CODE/src/macambiras/node_modules/express/package.json
+13 verbose read json /Users/chs/Desktop/CODE/src/macambiras/node_modules/findit2/package.json
+14 verbose read json /Users/chs/Desktop/CODE/src/macambiras/node_modules/jade/package.json
+15 verbose read json /Users/chs/Desktop/CODE/src/macambiras/node_modules/jshint/package.json
+16 verbose read json /Users/chs/Desktop/CODE/src/macambiras/node_modules/mongoose/package.json
+17 verbose read json /Users/chs/Desktop/CODE/src/macambiras/node_modules/nko/package.json
+18 verbose read json /Users/chs/Desktop/CODE/src/macambiras/node_modules/passport/package.json
+19 verbose read json /Users/chs/Desktop/CODE/src/macambiras/node_modules/passport-facebook/package.json
+20 verbose read json /Users/chs/Desktop/CODE/src/macambiras/node_modules/passport-github/package.json
+21 verbose read json /Users/chs/Desktop/CODE/src/macambiras/node_modules/passport-local/package.json
+22 verbose read json /Users/chs/Desktop/CODE/src/macambiras/node_modules/passport-oauth/package.json
+23 verbose read json /Users/chs/Desktop/CODE/src/macambiras/node_modules/passport-twitter/package.json
+24 verbose read json /Users/chs/Desktop/CODE/src/macambiras/node_modules/recess/package.json
+25 verbose read json /Users/chs/Desktop/CODE/src/macambiras/node_modules/uglify-js/package.json
+26 verbose read json /Users/chs/Desktop/CODE/src/macambiras/node_modules/watchr/package.json
+27 verbose from cache /Users/chs/Desktop/CODE/src/macambiras/package.json
+28 verbose readDependencies using package.json deps
+29 verbose read json /Users/chs/Desktop/CODE/src/macambiras/node_modules/.bin/package.json
+30 verbose from cache /Users/chs/Desktop/CODE/src/macambiras/node_modules/async/package.json
+31 verbose from cache /Users/chs/Desktop/CODE/src/macambiras/node_modules/connect-mongo/package.json
+32 verbose from cache /Users/chs/Desktop/CODE/src/macambiras/node_modules/emailjs/package.json
+33 verbose from cache /Users/chs/Desktop/CODE/src/macambiras/node_modules/express/package.json
+34 verbose from cache /Users/chs/Desktop/CODE/src/macambiras/node_modules/findit2/package.json
+35 verbose from cache /Users/chs/Desktop/CODE/src/macambiras/node_modules/jade/package.json
+36 verbose from cache /Users/chs/Desktop/CODE/src/macambiras/node_modules/jshint/package.json
+37 verbose from cache /Users/chs/Desktop/CODE/src/macambiras/node_modules/mongoose/package.json
+38 verbose from cache /Users/chs/Desktop/CODE/src/macambiras/node_modules/nko/package.json
+39 verbose from cache /Users/chs/Desktop/CODE/src/macambiras/node_modules/passport/package.json
+40 verbose from cache /Users/chs/Desktop/CODE/src/macambiras/node_modules/passport-facebook/package.json
+41 verbose from cache /Users/chs/Desktop/CODE/src/macambiras/node_modules/passport-github/package.json
+42 verbose from cache /Users/chs/Desktop/CODE/src/macambiras/node_modules/passport-local/package.json
+43 verbose from cache /Users/chs/Desktop/CODE/src/macambiras/node_modules/passport-oauth/package.json
+44 verbose from cache /Users/chs/Desktop/CODE/src/macambiras/node_modules/passport-twitter/package.json
+45 verbose from cache /Users/chs/Desktop/CODE/src/macambiras/node_modules/recess/package.json
+46 verbose from cache /Users/chs/Desktop/CODE/src/macambiras/node_modules/uglify-js/package.json
+47 verbose from cache /Users/chs/Desktop/CODE/src/macambiras/node_modules/watchr/package.json
+48 verbose already installed skipping express@~3.4.1 /Users/chs/Desktop/CODE/src/macambiras
+49 verbose already installed skipping findit2@~0.2.0 /Users/chs/Desktop/CODE/src/macambiras
+50 verbose already installed skipping jade@~0.35.0 /Users/chs/Desktop/CODE/src/macambiras
+51 verbose already installed skipping jshint@~2.1.11 /Users/chs/Desktop/CODE/src/macambiras
+52 verbose already installed skipping mongoose@~3.6.20 /Users/chs/Desktop/CODE/src/macambiras
+53 verbose already installed skipping passport@~0.1.17 /Users/chs/Desktop/CODE/src/macambiras
+54 verbose already installed skipping passport-local@~0.1.6 /Users/chs/Desktop/CODE/src/macambiras
+55 verbose already installed skipping passport-oauth@~1.0.0 /Users/chs/Desktop/CODE/src/macambiras
+56 verbose already installed skipping passport-facebook@~1.0.1 /Users/chs/Desktop/CODE/src/macambiras
+57 verbose already installed skipping passport-github@~0.1.5 /Users/chs/Desktop/CODE/src/macambiras
+58 verbose already installed skipping passport-twitter@~1.0.2 /Users/chs/Desktop/CODE/src/macambiras
+59 verbose already installed skipping recess@~1.1.9 /Users/chs/Desktop/CODE/src/macambiras
+60 verbose already installed skipping uglify-js@~2.4.0 /Users/chs/Desktop/CODE/src/macambiras
+61 verbose already installed skipping watchr@~2.4.4 /Users/chs/Desktop/CODE/src/macambiras
+62 verbose already installed skipping nko@* /Users/chs/Desktop/CODE/src/macambiras
+63 verbose already installed skipping async@~0.2.9 /Users/chs/Desktop/CODE/src/macambiras
+64 verbose already installed skipping connect-mongo@~0.3.3 /Users/chs/Desktop/CODE/src/macambiras
+65 verbose already installed skipping emailjs@~0.3.6 /Users/chs/Desktop/CODE/src/macambiras
+66 silly resolved []
+67 info build /Users/chs/Desktop/CODE/src/macambiras
+68 verbose from cache /Users/chs/Desktop/CODE/src/macambiras/package.json
+69 verbose linkStuff [ false, false, false, '/Users/chs/Desktop/CODE/src' ]
+70 info linkStuff nko4-macambiras@0.0.1
+71 verbose linkBins nko4-macambiras@0.0.1
+72 verbose linkMans nko4-macambiras@0.0.1
+73 verbose rebuildBundles nko4-macambiras@0.0.1
+74 verbose rebuildBundles [ '.bin',
+74 verbose rebuildBundles   'async',
+74 verbose rebuildBundles   'connect-mongo',
+74 verbose rebuildBundles   'emailjs',
+74 verbose rebuildBundles   'express',
+74 verbose rebuildBundles   'findit2',
+74 verbose rebuildBundles   'jade',
+74 verbose rebuildBundles   'jshint',
+74 verbose rebuildBundles   'mongoose',
+74 verbose rebuildBundles   'nko',
+74 verbose rebuildBundles   'passport',
+74 verbose rebuildBundles   'passport-facebook',
+74 verbose rebuildBundles   'passport-github',
+74 verbose rebuildBundles   'passport-local',
+74 verbose rebuildBundles   'passport-oauth',
+74 verbose rebuildBundles   'passport-twitter',
+74 verbose rebuildBundles   'recess',
+74 verbose rebuildBundles   'uglify-js',
+74 verbose rebuildBundles   'watchr' ]
+75 info install nko4-macambiras@0.0.1
+76 info postinstall nko4-macambiras@0.0.1
+77 verbose unsafe-perm in lifecycle true
+78 silly exec sh "-c" "node run.js build"
+79 silly sh,-c,node run.js build,/Users/chs/Desktop/CODE/src/macambiras spawning
+80 info nko4-macambiras@0.0.1 Failed to exec postinstall script
+81 error nko4-macambiras@0.0.1 postinstall: `node run.js build`
+81 error `sh "-c" "node run.js build"` failed with 1
+82 error Failed at the nko4-macambiras@0.0.1 postinstall script.
+82 error This is most likely a problem with the nko4-macambiras package,
+82 error not with npm itself.
+82 error Tell the author that this fails on your system:
+82 error     node run.js build
+82 error You can get their info via:
+82 error     npm owner ls nko4-macambiras
+82 error There is likely additional logging output above.
+83 error System Darwin 13.0.0
+84 error command "node" "/Users/chs/local/node/bin/npm" "install"
+85 error cwd /Users/chs/Desktop/CODE/src/macambiras
+86 error node -v v0.8.2
+87 error npm -v 1.1.71
+88 error code ELIFECYCLE
+89 verbose exit [ 1, true ]
