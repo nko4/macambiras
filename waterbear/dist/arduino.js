@@ -1861,7 +1861,7 @@ function is_touch_device() {
   return !!('ontouchstart' in window);
 }
 
-initContextMenus();
+//initContextMenus();
 // if (is_touch_device()){
 //     $.tappable({
 //         container: '.blockmenu, .workspace',
@@ -1923,7 +1923,8 @@ function edit_menu(title, specs, show){
 /*begin workspace.js*/
 (function(wb){
 
-	var language = location.pathname.match(/\/(.*)\.html/)[1];
+	//var language = location.pathname.match(/\/(.*)\.html/)[1];
+        var language = "processingjs";
 
 	function clearScripts(event, force){
 		if (force || confirm('Throw out the current script?')){

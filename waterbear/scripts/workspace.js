@@ -1,6 +1,7 @@
 (function(wb){
 
-	var language = location.pathname.match(/\/(.*)\.html/)[1];
+	//var language = location.pathname.match(/\/(.*)\.html/)[1];
+        var language = "processingjs";
 
 	function clearScripts(event, force){
 		if (force || confirm('Throw out the current script?')){
