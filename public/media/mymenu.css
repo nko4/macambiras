@@ -135,8 +135,16 @@ ul#menu li a, ul#menu li ul.sub-menu li a {
 ul#menu > li > a {
 	text-align:center;
 }
+
+ul#menu li a, ul#menu li ul.sub-menu li a {
+	background: transparent;
+        color: #666;
+}
+
+
 ul#menu li a:hover, ul#menu li ul.sub-menu li a:hover {
-	background:#E7E7E7;
+	background:#eee;
+        color: #666;
 }
 /*Make the parent of sub-menu relative*/
 ul#menu li {
