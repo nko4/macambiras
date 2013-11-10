@@ -1,0 +1,119 @@
+{
+    "name": "Control",
+    "blocks": [
+        {
+            "blocktype": "expression",
+            "id": "e3a5ea20-3ca9-42cf-ac02-77ff06836a7e",
+            "type": "boolean",
+            "script": "({{1}} == {{2}})",
+            "help": "Determines if two values are equivalent",
+            "sockets": [
+                {
+                    "name": "",
+                    "type": "number",
+                    "value": "0"
+                },
+                {
+                    "name": "==",
+                    "type": "number",
+                    "value": "0"
+                }
+            ]
+        },
+        {
+            "blocktype": "expression",
+            "id": "d753757b-a7d4-4d84-99f1-cb9b8c7e62da",
+            "type": "boolean",
+            "script": "({{1}} < {{2}})",
+            "help": "Tests if the value on the left is smaller than the value on the right",
+            "sockets": [
+                {
+                    "name": "",
+                    "type": "number",
+                    "value": "0"
+                },
+                {
+                    "name": "<",
+                    "type": "number",
+                    "value": "0"
+                }
+            ]
+        },
+        {
+            "blocktype": "expression",
+            "id": "d753757b-a7d4-4d84-99f1-cb9b8c7e62da",
+            "type": "boolean",
+            "script": "({{1}} <= {{2}})",
+            "help": "Tests if the value on the left is less than the value on the right or if the values are equivalent",
+            "sockets": [
+                {
+                    "name": "",
+                    "type": "number",
+                    "value": "0"
+                },
+                {
+                    "name": "<=",
+                    "type": "number",
+                    "value": "0"
+                }
+            ]
+        },        {
+            "blocktype": "expression",
+            "id": "5a1f5f68-d74b-4154-b376-6a0200f585ed",
+            "type": "boolean",
+            "script": "({{1}} > {{2}})",
+            "help": "Tests if the value on the left is larger than the value on the right",
+            "sockets": [
+                {
+                    "name": "",
+                    "type": "number",
+                    "value": "0"
+                },
+                {
+                    "name": ">",
+                    "type": "number",
+                    "value": "0"
+                }
+            ]
+        },
+        {
+            "blocktype": "expression",
+            "id": "5a1f5f58-d76b-4184-b376-5a3202f585ed",
+            "type": "boolean",
+            "script": "({{1}} >= {{2}})",
+            "help": "Tests if the value on the left is larger than the value on the right or if the values are equivalent",
+            "sockets": [
+                {
+                    "name": "",
+                    "type": "number",
+                    "value": "0"
+                },
+                {
+                    "name": ">=",
+                    "type": "number",
+                    "value": "0"
+                }
+            ]
+        },
+        {
+            "blocktype": "expression",
+            "id": "5a1f5f58-d76b-4184-b376-098202f4854d",
+            "type": "boolean",
+            "script": "({{1}} != {{2}})",
+            "help": "Determines if one expression is not equivalent to another",
+            "sockets": [
+                {
+                    "name": "",
+                    "type": "number",
+                    "value": "0"
+                },
+                {
+                    "name": "!=",
+                    "type": "number",
+                    "value": "0"
+                }
+            ]
+        },
+    ]
+}
+

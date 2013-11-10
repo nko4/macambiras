@@ -79,63 +79,6 @@
         },
         {
             "blocktype": "expression",
-            "id": "e3a5ea20-3ca9-42cf-ac02-77ff06836a7e",
-            "type": "boolean",
-            "script": "({{1}} === {{2}})",
-            "help": "two operands are equal",
-            "sockets": [
-                {
-                    "name": "",
-                    "type": "number",
-                    "value": "0"
-                },
-                {
-                    "name": "=",
-                    "type": "number",
-                    "value": "0"
-                }
-            ]
-        },
-        {
-            "blocktype": "expression",
-            "id": "d753757b-a7d4-4d84-99f1-cb9b8c7e62da",
-            "type": "boolean",
-            "script": "({{1}} < {{2}})",
-            "help": "first operand is less than second operand",
-            "sockets": [
-                {
-                    "name": "",
-                    "type": "number",
-                    "value": "0"
-                },
-                {
-                    "name": "<",
-                    "type": "number",
-                    "value": "0"
-                }
-            ]
-        },
-        {
-            "blocktype": "expression",
-            "id": "5a1f5f68-d74b-4154-b376-6a0200f585ed",
-            "type": "boolean",
-            "script": "({{1}} > {{2}})",
-            "help": "first operand is greater than second operand",
-            "sockets": [
-                {
-                    "name": "",
-                    "type": "number",
-                    "value": "0"
-                },
-                {
-                    "name": ">",
-                    "type": "number",
-                    "value": "0"
-                }
-            ]
-        },
-        {
-            "blocktype": "expression",
             "id": "a35fb291-e2fa-42bb-a5a6-2124bb33157d",
             "type": "number",
             "script": "randint({{1}}, {{2}})",

@@ -2152,7 +2152,6 @@ ajax.submit=function(url,elm,frm){var e=$(elm);var f=function(r){e.innerHTML=r};
 
         if (selector){
             listener = function(event){
-                console.log('ocorreu evento', event);
 
                 blend(event); // normalize between touch and mouse events
                 // if (eventname === 'mousedown'){
@@ -2236,12 +2235,6 @@ ajax.submit=function(url,elm,frm){var e=$(elm);var f=function(r){e.innerHTML=r};
 
     // Treat mouse events and single-finger touch events similarly
     var blend = function(event){
-<<<<<<< HEAD
-      if (TogetherJS.running) {
-        TogetherJS.send({type: "eventoo", event: event});
-      }
-=======
->>>>>>> 2b3c0e33be6ccaa9deebbc6d022ebb7fb9f612a5
       
         if (isPointerEvent(event)){
             if (isTouch){
@@ -4175,6 +4168,12 @@ Event.on('.socket input', 'click', null, function(event){
 
 /*end languages/processingjs/processingjs.js*/
 
+/*begin languages/processingjs/colors.js*/
+// expose these globally so the Block/Label methods can find them
+wb.choiceLists.mode = ['RGB', 'HSB'];
+
+/*end languages/processingjs/colors.js*/
+
 /*begin languages/processingjs/asset.js*/
 
 /*end languages/processingjs/asset.js*/
@@ -4300,13 +4299,13 @@ wb.choiceLists.rettypes = wb.choiceLists.rettypes.concat(['color', 'image', 'sha
 /*end languages/processingjs/matrix.js*/
 
 /*begin languages/processingjs/processing.json*/
-wb.menu(        {
-    "name": "Processing",
+wb.menu({
+    "name": "Structure",
     "blocks": [
         {
             "blocktype": "eventhandler",
-            "id": "1cf8132a-4996-45db-b482-4e336200e3ca",
-            "script": "void setup(){[[1]]};",
+            "id": "1cf8132a-4996-45db-b482-4e3302003c1",
+            "script": "void setup(){[[1]]}",
             "help": "Setup the Processing Canvas",
             "sockets": [
                 {
@@ -4316,8 +4315,8 @@ wb.menu(        {
         },
         {
             "blocktype": "eventhandler",
-            "id": "1cf8132a-4996-45db-b482-4e336198e3ca",
-            "script": "void draw(){[[1]]};",
+            "id": "1cf8132a-4996-45db-b482-4336198e3ca",
+            "script": "void draw(){[[1]]}",
             "help": "Main draw loop",
             "sockets": [
                 {
@@ -4345,42 +4344,6 @@ wb.menu(        {
         },
         {
             "blocktype": "step",
-            "id": "01123271-6dc0-4a82-81cc-4c50d8wcb9e7",
-            "script": "background({{1}});",
-            "help": "Set background color",
-            "sockets": [
-                {
-                    "name": "background color",
-                    "type": "color",
-                }
-            ]
-        },
-        {
-            "blocktype": "step",
-            "id": "01543271-6dc0-4a82-81cc-4c50d812b978",
-            "script": "fill({{1}});",
-            "help": "Set fill color",
-            "sockets": [
-                {
-                    "name": "fill color",
-                    "type": "color",
-                }
-            ]
-        },
-        {
-            "blocktype": "step",
-            "id": "01983271-6dc0-wa82-81cc-4c50d8ecb9e7",
-            "script": "stroke({{1}});",
-            "help": "Set stroke color",
-            "sockets": [
-                {
-                    "name": "stroke color",
-                    "type": "color",
-                }
-            ]
-        },
-        {
-            "blocktype": "step",
             "id": "71eb3271-6dc0-4122-82cc-4c5077ac19e7",
             "script": "frameRate({{1}});",
             "help": "Set frame rate",
@@ -4394,7 +4357,39 @@ wb.menu(        {
         },
         {
             "blocktype": "step",
-            "id": "71eb3271-6dc0-4a82-81cc-4c50d2ac19e7",
+            "id": "06723171-6d20-4a32-814c-2c50d8wcb9e7",
+            "script": "noLoop();",
+            "help": "Stops Processing from continuously executing the code within draw()",
+            "sockets": [
+                {
+                    "name": "noLoop",
+                }
+            ]
+        },
+        {
+            "blocktype": "step",
+            "id": "06723171-6d20-4a32-814c-225038w4b9e7",
+            "script": "loop();",
+            "help": "Causes Processing to continuously execute the code within draw()",
+            "sockets": [
+                {
+                    "name": "loop",
+                }
+            ]
+        },
+    ]
+}
+
+);
+/*end languages/processingjs/processing.json*/
+
+/*begin languages/processingjs/shapes.json*/
+wb.menu({
+    "name": "Shape",
+    "blocks": [
+        {
+            "blocktype": "step",
+            "id": "82eb3271-6dc0-4a82-81cc-4c50d34c11e7",
             "script": "ellipse({{1}}, {{2}}, {{3}}, {{4}});",
             "help": "Create ellipse",
             "sockets": [
@@ -4423,18 +4418,7 @@ wb.menu(        {
         },
         {
             "blocktype": "step",
-            "id": "06723171-6d20-4a32-814c-2c50d8wcb9e7",
-            "script": "noLoop();",
-            "help": "Stop looping",
-            "sockets": [
-                {
-                    "name": "noLoop##",
-                }
-            ]
-        },
-        {
-            "blocktype": "step",
-            "id": "71e73171-6dc0-4122-82cc-4c5074ac18e7",
+            "id": "71e73171-6dc0-4122-82cc-4253744618e7",
             "script": "line({{1}}, {{2}}, {{3}}, {{4}});",
             "help": "Draws a line (a direct path between two points)",
             "sockets": [
@@ -4462,7 +4446,7 @@ wb.menu(        {
         },
         {
             "blocktype": "step",
-            "id": "71eb32s1-6cc0-4322-82sc-4c5077ac19e7",
+            "id": "71eb32s1-6cc0-4322-82sc-4c50774c59e7",
             "script": "point({{1}}, {{2}});",
             "help": "Draws a point, a coordinate in space at the dimension of one pixel",
             "sockets": [
@@ -4554,11 +4538,516 @@ wb.menu(        {
                 }
             ]
         },
+        {
+            "blocktype": "step",
+            "id": "018e83781-2c40-4162-824c-4c5277ac19e7",
+            "script": "triangle({{1}}, {{2}}, {{3}}, {{4}}, {{5}}, {{6}});",
+            "help": "A triangle is a plane created by connecting three points",
+            "sockets": [
+                {
+                    "name": "triangle x1",
+                    "type": "number",
+                    "value": "30"
+                },
+                {
+                    "name": "y1",
+                    "type": "number",
+                    "value": "75"
+                },
+                {
+                    "name": "x2",
+                    "type": "number",
+                    "value": "58"
+                },
+                {
+                    "name": "y2",
+                    "type": "number",
+                    "value": "20"
+                },
+                {
+                    "name": "x3",
+                    "type": "number",
+                    "value": "86"
+                },
+                {
+                    "name": "y3",
+                    "type": "number",
+                    "value": "75"
+                }
+            ]
+        },
+        {
+            "blocktype": "step",
+            "id": "018e83781-2c40-4162-824c-4c5277ac19e7",
+            "script": "arc({{1}}, {{2}}, {{3}}, {{4}}, {{5}}, {{6}});",
+            "help": "Draws an arc",
+            "sockets": [
+                {
+                    "name": "arc x",
+                    "type": "number",
+                    "value": "50"
+                },
+                {
+                    "name": "y",
+                    "type": "number",
+                    "value": "55"
+                },
+                {
+                    "name": "width",
+                    "type": "number",
+                    "value": "50"
+                },
+                {
+                    "name": "height",
+                    "type": "number",
+                    "value": "50"
+                },
+                {
+                    "name": "start",
+                    "type": "number",
+                    "value": "0"
+                },
+                {
+                    "name": "stop",
+                    "type": "number",
+                    "value": "PI/2"
+                }
+            ]
+        },
     ]
 }
 
 );
-/*end languages/processingjs/processing.json*/
+/*end languages/processingjs/shapes.json*/
+
+/*begin languages/processingjs/colors.json*/
+wb.menu({
+    "name": "Colors",
+    "blocks": [
+        {
+            "blocktype": "step",
+            "id": "01123271-6dc0-4a82-81cc-4c50d8wcb9e7",
+            "script": "background({{1}});",
+            "help": "Set background color",
+            "sockets": [
+                {
+                    "name": "background color",
+                    "type": "color",
+                }
+            ]
+        },
+        {
+            "blocktype": "step",
+            "id": "01543271-6dc0-4a82-81cc-4c50d812b978",
+            "script": "fill({{1}});",
+            "help": "Set fill color",
+            "sockets": [
+                {
+                    "name": "fill color",
+                    "type": "color",
+                }
+            ]
+        },
+        {
+            "blocktype": "step",
+            "id": "01983271-6dc0-wa82-81cc-4c50d8ecb9e7",
+            "script": "stroke({{1}});",
+            "help": "Set stroke color",
+            "sockets": [
+                {
+                    "name": "stroke color",
+                    "type": "color",
+                }
+            ]
+        },
+        {
+            "blocktype": "step",
+            "id": "06723171-6d20-4a32-814c-2c50d92b29ew",
+            "script": "noFill();",
+            "help": "Disables filling geometry",
+            "sockets": [
+                {
+                    "name": "noFill##",
+                }
+            ]
+        },
+        {
+            "blocktype": "step",
+            "id": "16723171-6d20-4a32-814c-2c50d94b296w",
+            "script": "noStroke();",
+            "help": "Disables drawing the stroke (outline)",
+            "sockets": [
+                {
+                    "name": "noStroke##",
+                }
+            ]
+        },
+        {
+            "blocktype": "step",
+            "id": "0237b5ab-d22a-45f9-af38-4a64bc98dbc3",
+            "script": "colorMode( {{1}}, {{2}});",
+            "help": "Changes the way Processing interprets color data",
+            "sockets": [
+                {
+                    "name": "color mode",
+                    "type": "choice",
+                    "options": "mode",
+                    "value": "choice"
+                },
+                {
+                    "name": "range",
+                    "type": "number",
+                    "value": "255"
+                }
+            ]
+        },
+    ]
+}
+
+);
+/*end languages/processingjs/colors.json*/
+
+/*begin languages/processingjs/input.json*/
+wb.menu({
+    "name": "Input",
+    "blocks": [
+        {
+            "blocktype": "expression",
+            "id": "01124271-6dc0-4a82-81cc-4s50388c3907",
+            "script": "mouseButton",
+            "help": "Tracks if the mouse button is pressed and which button is pressed",
+            "sockets": [
+                {
+                    "name": "mouse button"
+                }
+            ]
+        },
+        {
+            "blocktype": "expression",
+            "id": "01124271-6dc0-4a82-81cc-4350338c3307",
+            "script": "mousePressed",
+            "help": "Variable storing if a mouse button is pressed",
+            "sockets": [
+                {
+                    "name": "mousePressed"
+                }
+            ]
+        },
+        {
+            "blocktype": "expression",
+            "id": "01124271-6dc0-4a82-81cc-4s50388c3907",
+            "script": "mouseX",
+            "help": "Contains the current horizontal coordinate of the mouse",
+            "sockets": [
+                {
+                    "name": "mouseX"
+                }
+            ]
+        },
+        {
+            "blocktype": "expression",
+            "id": "01124271-6dc0-4a82-81cc-4757378c3907",
+            "script": "mouseY",
+            "help": "Contains the current vertical coordinate of the mouse",
+            "sockets": [
+                {
+                    "name": "mouseY"
+                }
+            ]
+        },
+        {
+            "blocktype": "expression",
+            "id": "01124271-6dc0-4a82-81cc-4s5938893997",
+            "script": "pmouseX",
+            "help": "Contains the previous horizontal coordinate of the mouse",
+            "sockets": [
+                {
+                    "name": "pmouseX"
+                }
+            ]
+        },
+        {
+            "blocktype": "expression",
+            "id": "01124271-6dc0-4a82-81cc-9s50358c3507",
+            "script": "pmouseY",
+            "help": "Contains the previous vertical coordinate of the mouse",
+            "sockets": [
+                {
+                    "name": "pmouseY"
+                }
+            ]
+        },
+        {
+            "blocktype": "eventhandler",
+            "id": "1c4813ra-4v96-45ds-ee82-3e132200e3ca",
+            "script": "void mouseClicked(){[[1]]}",
+            "help": "Called once after a mouse button has been pressed and then released",
+            "sockets": [
+                {
+                    "name": "mouse clicked"
+                }
+            ]
+        },
+        {
+            "blocktype": "eventhandler",
+            "id": "1c4813ra-4v96-45ds-ee82-4e634204e34a",
+            "script": "void mouseDragged(){[[1]]}",
+            "help": "Called once every time the mouse moves and a mouse button is pressed",
+            "sockets": [
+                {
+                    "name": "mouse dragged"
+                }
+            ]
+        },
+        {
+            "blocktype": "eventhandler",
+            "id": "1248334a-4v56-453s-ee82-4e634204e34a",
+            "script": "void mouseMoved(){[[1]]}",
+            "help": "Called every time the mouse moves and a mouse button is not pressed",
+            "sockets": [
+                {
+                    "name": "mouse moved"
+                }
+            ]
+        },
+        {
+            "blocktype": "eventhandler",
+            "id": "1244384a-4v86-473s-e582-3e134204e34a",
+            "script": "void mouseOut(){[[1]]}",
+            "help": "Called when the mouse pointer leaves a sketch",
+            "sockets": [
+                {
+                    "name": "mouse out"
+                }
+            ]
+        },
+        {
+            "blocktype": "eventhandler",
+            "id": "1244384a-4v86-473s-e582-0e939244334a",
+            "script": "void mouseOver(){[[1]]}",
+            "help": "Called when the mouse pointer moves over the sketch",
+            "sockets": [
+                {
+                    "name": "mouse over"
+                }
+            ]
+        },
+        {
+            "blocktype": "eventhandler",
+            "id": "1244384a-4v86-473s-e582-391624i934a",
+            "script": "void mousePressed(){[[1]]}",
+            "help": "Called once after every time a mouse button is pressed",
+            "sockets": [
+                {
+                    "name": "mouse pressed"
+                }
+            ]
+        },
+        {
+            "blocktype": "eventhandler",
+            "id": "1244384a-4v86-473s-e582-292634id39a",
+            "script": "void mouseReleased(){[[1]]}",
+            "help": "Called every time a mouse button is released",
+            "sockets": [
+                {
+                    "name": "mouse released"
+                }
+            ]
+        },
+        {
+            "blocktype": "expression",
+            "id": "01124271-6dc0-4a82-81cc-4s5b3a8v39e7",
+            "script": "key",
+            "help": "Contains the value of the most recently pressed key on the keyboard",
+            "sockets": [
+                {
+                    "name": "key"
+                }
+            ]
+        },
+        {
+            "blocktype": "expression",
+            "id": "81926274-63cn-4d82-e1cc-4s5b3a8v39e7",
+            "script": "keyCode",
+            "help": "Used to detect special keys ",
+            "sockets": [
+                {
+                    "name": "key code"
+                }
+            ]
+        },
+        {
+            "blocktype": "expression",
+            "id": "8192ib74-63an-4de2-e1dc-4s5b3e8vc9e7",
+            "script": "keyPressed",
+            "help": "True if any key is pressed and false if no keys are pressed",
+            "sockets": [
+                {
+                    "name": "keyPressed"
+                }
+            ]
+        },
+        {
+            "blocktype": "eventhandler",
+            "id": "1j4538ja-4vf6-473s-er82-2r2f31ids9a",
+            "script": "void keyPressed(){[[1]]}",
+            "help": "Called once every time a key is pressed",
+            "sockets": [
+                {
+                    "name": "key pressed"
+                }
+            ]
+        },
+        {
+            "blocktype": "eventhandler",
+            "id": "1s45h8ja-4vf6-473s-er82-2r2f35idsg9a",
+            "script": "void keyReleased(){[[1]]}",
+            "help": "Called once every time a key is released",
+            "sockets": [
+                {
+                    "name": "key released"
+                }
+            ]
+        },
+        {
+            "blocktype": "eventhandler",
+            "id": "1s45h8ja-4vf6-473s-er82-2r2f35idsg9a",
+            "script": "void keyTyped(){[[1]]}",
+            "help": "Called once every time a key is pressed",
+            "sockets": [
+                {
+                    "name": "key typed"
+                }
+            ]
+        },
+    ]
+}
+
+);
+/*end languages/processingjs/input.json*/
+
+/*begin languages/processingjs/controls.json*/
+wb.menu({
+    "name": "Control",
+    "blocks": [
+        {
+            "blocktype": "expression",
+            "id": "e3a5ea20-3ca9-42cf-ac02-77ff06836a7e",
+            "type": "boolean",
+            "script": "({{1}} == {{2}})",
+            "help": "Determines if two values are equivalent",
+            "sockets": [
+                {
+                    "name": "",
+                    "type": "number",
+                    "value": "0"
+                },
+                {
+                    "name": "==",
+                    "type": "number",
+                    "value": "0"
+                }
+            ]
+        },
+        {
+            "blocktype": "expression",
+            "id": "d753757b-a7d4-4d84-99f1-cb9b8c7e62da",
+            "type": "boolean",
+            "script": "({{1}} < {{2}})",
+            "help": "Tests if the value on the left is smaller than the value on the right",
+            "sockets": [
+                {
+                    "name": "",
+                    "type": "number",
+                    "value": "0"
+                },
+                {
+                    "name": "<",
+                    "type": "number",
+                    "value": "0"
+                }
+            ]
+        },
+        {
+            "blocktype": "expression",
+            "id": "d753757b-a7d4-4d84-99f1-cb9b8c7e62da",
+            "type": "boolean",
+            "script": "({{1}} <= {{2}})",
+            "help": "Tests if the value on the left is less than the value on the right or if the values are equivalent",
+            "sockets": [
+                {
+                    "name": "",
+                    "type": "number",
+                    "value": "0"
+                },
+                {
+                    "name": "<=",
+                    "type": "number",
+                    "value": "0"
+                }
+            ]
+        },        {
+            "blocktype": "expression",
+            "id": "5a1f5f68-d74b-4154-b376-6a0200f585ed",
+            "type": "boolean",
+            "script": "({{1}} > {{2}})",
+            "help": "Tests if the value on the left is larger than the value on the right",
+            "sockets": [
+                {
+                    "name": "",
+                    "type": "number",
+                    "value": "0"
+                },
+                {
+                    "name": ">",
+                    "type": "number",
+                    "value": "0"
+                }
+            ]
+        },
+        {
+            "blocktype": "expression",
+            "id": "5a1f5f58-d76b-4184-b376-5a3202f585ed",
+            "type": "boolean",
+            "script": "({{1}} >= {{2}})",
+            "help": "Tests if the value on the left is larger than the value on the right or if the values are equivalent",
+            "sockets": [
+                {
+                    "name": "",
+                    "type": "number",
+                    "value": "0"
+                },
+                {
+                    "name": ">=",
+                    "type": "number",
+                    "value": "0"
+                }
+            ]
+        },
+        {
+            "blocktype": "expression",
+            "id": "5a1f5f58-d76b-4184-b376-098202f4854d",
+            "type": "boolean",
+            "script": "({{1}} != {{2}})",
+            "help": "Determines if one expression is not equivalent to another",
+            "sockets": [
+                {
+                    "name": "",
+                    "type": "number",
+                    "value": "0"
+                },
+                {
+                    "name": "!=",
+                    "type": "number",
+                    "value": "0"
+                }
+            ]
+        },
+    ]
+}
+
+);
+/*end languages/processingjs/controls.json*/
 
 /*begin languages/processingjs/control.json*/
 wb.menu({
@@ -6711,63 +7200,6 @@ wb.menu({
                 },
                 {
                     "name": "/",
-                    "type": "number",
-                    "value": "0"
-                }
-            ]
-        },
-        {
-            "blocktype": "expression",
-            "id": "e3a5ea20-3ca9-42cf-ac02-77ff06836a7e",
-            "type": "boolean",
-            "script": "({{1}} === {{2}})",
-            "help": "two operands are equal",
-            "sockets": [
-                {
-                    "name": "",
-                    "type": "number",
-                    "value": "0"
-                },
-                {
-                    "name": "=",
-                    "type": "number",
-                    "value": "0"
-                }
-            ]
-        },
-        {
-            "blocktype": "expression",
-            "id": "d753757b-a7d4-4d84-99f1-cb9b8c7e62da",
-            "type": "boolean",
-            "script": "({{1}} < {{2}})",
-            "help": "first operand is less than second operand",
-            "sockets": [
-                {
-                    "name": "",
-                    "type": "number",
-                    "value": "0"
-                },
-                {
-                    "name": "<",
-                    "type": "number",
-                    "value": "0"
-                }
-            ]
-        },
-        {
-            "blocktype": "expression",
-            "id": "5a1f5f68-d74b-4154-b376-6a0200f585ed",
-            "type": "boolean",
-            "script": "({{1}} > {{2}})",
-            "help": "first operand is greater than second operand",
-            "sockets": [
-                {
-                    "name": "",
-                    "type": "number",
-                    "value": "0"
-                },
-                {
-                    "name": ">",
                     "type": "number",
                     "value": "0"
                 }
