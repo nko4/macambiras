@@ -263,7 +263,6 @@ body.editor #block_menu{
 	display: block;
 	font-size: 1em;
 	padding: .5em .5em .5em .7em;
-        margin: 0;
 }
 
 .accordion-body{

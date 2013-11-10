@@ -11,6 +11,9 @@ function tabSelect(event){
     }else if (wb.matches(target, '.scripts_text_view_tab')){
         showWorkspace('text');
         updateScriptsView();
+    }else if (wb.matches(target, '.preview_tab')){
+        showWorkspace('preview');
+        updatePreviewView();
     }
 }
 Event.on('.tabbar', 'click', '.chrome_tab', tabSelect);
@@ -33,16 +36,28 @@ function showWorkspace(mode){
     var scriptsWorkspace = document.querySelector('.scripts_workspace');
     if (!scriptsWorkspace) return;
     var scriptsTextView = document.querySelector('.scripts_text_view');
+    var previewView = document.querySelector('.preview_view');
     if (mode === 'block'){
 	    scriptsWorkspace.style.display = '';
 	    scriptsTextView.style.display = 'none';
+            previewView.style.display = 'none';
         workspace.classList.remove('textview');
+        workspace.classList.remove('preview')
         workspace.classList.add('blockview');
     }else if (mode === 'text'){
     	scriptsWorkspace.style.display = 'none';
     	scriptsTextView.style.display = '';
+        previewView.style.display = 'none';
         workspace.classList.remove('blockview');
+        workspace.classList.remove('preview');
         workspace.classList.add('textview');
+    }else if (mode === 'preview'){
+    	scriptsWorkspace.style.display = 'none';
+        previewView.style.display = '';
+    	scriptsTextView.style.display = 'none';
+        workspace.classList.remove('blockview');
+        workspace.classList.remove('textview');
+        workspace.classList.add('preview');
     }
 }
 // Expose this to dragging and saving functionality
@@ -51,9 +66,17 @@ wb.showWorkspace = showWorkspace;
 function updateScriptsView(){
     var blocks = wb.findAll(document.body, '.workspace .scripts_workspace');
     var view = wb.find(document.body, '.workspace .scripts_text_view');
+    
     wb.writeScript(blocks, view);
 }
 window.updateScriptsView = updateScriptsView;
+
+function updatePreviewView(){
+    var blocks = wb.findAll(document.body, '.workspace .scripts_workspace');
+    load(wb.prettyScript(blocks));
+}
+window.updatePreviewView = updatePreviewView;
+
 
 
 // Context Menu

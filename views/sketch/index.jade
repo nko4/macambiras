@@ -1,29 +1,37 @@
-extends ../../layouts/default
+extends ../../layouts/sketch
 
 block head
-  title Editor
+  title Sketch !{sketch.id}
   link(href='/media/processingjs.css' rel='stylesheet')
+  link(href='/media/mymenu.css' rel='stylesheet')
   script(src='https://togetherjs.com/togetherjs-min.js')
 
 block feet
   script(src='/views/login/index.min.js?#{cacheBreaker}')
 
 block body
-  b Foo !{sketch.id}
-  div#context_menu
   div#block_menu_load
     | Loading...
-  div#block_menu
+  div(class="content editor")
+    nav(nav='nav' role='navigation')
+      h1.title #{projectName}
+      ul#menu
+        li
+          a(id='clear_scripts' href='#' onclick='var workspace = document.querySelector(".workspace > .scripts_workspace");workspace.parentElement.removeChild(workspace);wb.createWorkspace("Workspace");document.querySelector(".workspace > .scripts_text_view").innerHTML = "";') New
+        li
+          a(id='save_script' href='#' onclick='$.ajax({type: "POST",data: JSON.stringify(localStorage["__processingjs_current_scripts"]),contentType: "application/json", url: "/save"});') Save
+    div#block_menu
     div(class='workspace blockview')
       div.tabbar
         div(class='scripts_workspace_tab chrome_tab selected')
-          | Script Blocks
+          | Blocks
         div(class='scripts_text_view_tab chrome_tab')
-          | Script Text
+          | Code
+        div(class='preview_tab chrome_tab')
+          | Run
       div.scripts_text_view
-  div(class="content result")
-    div.stage
-      iframe(id='preview_iframe' class='stageframe' width='100%' height='100%')
+      div.preview_view
+        iframe(id='preview_iframe' class='stageframe' width='100%' height='100%')
   svg
     text
   script(src='/media/processingjs.js')

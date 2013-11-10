@@ -22,10 +22,10 @@ exports.read = function (req, res, next) {
     console.log('SKETCH', sketches);
     console.log('ERR', err);
   });
-  res.render('sketch/index', { sketch: { id: escape(JSON.stringify(req.params.id))}});
+  res.render('sketch/index', { sketch: { id: JSON.stringify(req.params.id)}});
 };
 
-// maybe we don't need that...
-exports.create = function (req, res, next) {
 
+exports.save = function (req, res) {
+  console.log(JSON.stringify(req));
 };
