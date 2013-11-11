@@ -3457,7 +3457,8 @@ window.updateScriptsView = updateScriptsView;
 
 function updatePreviewView(){
     var blocks = wb.findAll(document.body, '.workspace .scripts_workspace');
-    load(wb.prettyScript(blocks));
+    //console.log(wb.prettyScript(blocks));
+    load(wb.prettyScript(blocks).replace(/["]/g, ""));
 }
 window.updatePreviewView = updatePreviewView;
 
